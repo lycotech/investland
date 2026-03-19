@@ -11,9 +11,9 @@ export default function HeroSection() {
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
         style={{ backgroundImage: "url('/hero-bg.jpg')" }}
       />
-      {/* White gradient overlay — keeps text readable while showing the image on the right */}
+      {/* White gradient overlay */}
       <div className="absolute inset-0 bg-gradient-to-r from-white/95 via-white/80 to-white/30" />
-      {/* Subtle animated accent blobs on top of the image */}
+      {/* Animated accent blobs */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <motion.div
           animate={{ y: [0, -30, 0], opacity: [0.15, 0.3, 0.15] }}
@@ -35,9 +35,13 @@ export default function HeroSection() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
           >
+            <div className="inline-flex items-center gap-2 bg-primary/8 border border-primary/15 text-primary text-xs font-semibold tracking-widest uppercase px-4 py-2 rounded-full mb-8">
+              SEC Licensed Asset Manager · Built for Serious Capital
+            </div>
             <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-foreground leading-tight tracking-tight mb-6">
-              Building Wealth. <br className="hidden md:block" />
-              <span className="text-primary">Securing Futures.</span>
+              Structured Wealth. <br className="hidden md:block" />
+              Disciplined Capital. <br className="hidden md:block" />
+              <span className="text-primary">Enduring Value.</span>
             </h1>
           </motion.div>
 
@@ -47,7 +51,7 @@ export default function HeroSection() {
             transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
             className="text-lg md:text-xl text-muted-foreground mb-10 max-w-2xl leading-relaxed"
           >
-            Trusted asset management solutions for individuals, businesses, and institutions. Discover tailored strategies designed for long-term growth and capital preservation.
+            We provide institutional-grade asset management for individuals, corporates, and select investors seeking clarity, control, and consistent long-term performance.
           </motion.p>
 
           <motion.div
@@ -60,14 +64,14 @@ export default function HeroSection() {
               href="#contact"
               className="w-full sm:w-auto px-8 py-4 bg-primary text-white font-medium rounded-md hover:bg-primary-dark transition-colors shadow-lg flex items-center justify-center gap-2 group"
             >
-              Start Investing
+              Request a Private Consultation
               <ChevronRight size={18} className="group-hover:translate-x-1 transition-transform" />
             </a>
             <a
               href="#contact"
               className="w-full sm:w-auto px-8 py-4 bg-white border border-border text-foreground font-medium rounded-md hover:bg-muted transition-colors shadow-sm flex items-center justify-center"
             >
-              Talk to an Advisor
+              Speak to an Advisor
             </a>
           </motion.div>
         </div>

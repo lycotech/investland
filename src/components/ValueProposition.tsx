@@ -1,89 +1,101 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { CheckCircle2 } from 'lucide-react';
+import { CheckCircle2, ShieldCheck, TrendingUp, Eye, Target } from 'lucide-react';
 
-const BULLETS = [
-  'Data-driven investment decisions',
-  'Risk-managed portfolios',
-  'Long-term wealth strategy',
-  'Transparent reporting & real-time insights',
+const PHILOSOPHY = [
+  { icon: ShieldCheck, label: 'Preserve capital first' },
+  { icon: Target, label: 'Deploy with discipline' },
+  { icon: TrendingUp, label: 'Optimize for long-term value' },
+  { icon: Eye, label: 'Maintain full transparency' },
+];
+
+const ADVANTAGES = [
+  'Institutional-grade investment discipline',
+  'Structured and transparent portfolio management',
+  'Access to curated investment opportunities',
+  'Strong governance and risk oversight',
+  'Long-term wealth preservation focus',
 ];
 
 export default function ValueProposition() {
   return (
-    <section id="value-proposition" className="py-24 bg-white overflow-hidden">
-      <div className="container mx-auto px-6 md:px-12">
-        <div className="flex flex-col lg:flex-row items-center gap-16">
-          {/* Left Side */}
-          <motion.div
-            initial={{ opacity: 0, x: -40 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true, margin: "-100px" }}
-            transition={{ duration: 0.8 }}
-            className="w-full lg:w-1/2"
-          >
-            <span className="text-primary font-semibold tracking-wider uppercase text-sm mb-3 block">
-              Why Invest Trust?
-            </span>
-            <h2 className="text-3xl md:text-5xl font-bold text-foreground mb-6 leading-tight">
-              An Institutional Approach to Your Personal Wealth.
-            </h2>
-            <p className="text-lg text-muted-foreground mb-8 leading-relaxed">
-              We move beyond generic advice to offer bespoke financial strategies. By combining deep market intelligence with rigorous risk management, we help our clients navigate volatility and achieve consistent, long-term growth.
-            </p>
-            
-            <a
-              href="#about"
-              className="inline-flex items-center text-primary font-medium hover:text-primary-dark transition-colors group"
+    <>
+      {/* Investment Approach */}
+      <section id="value-proposition" className="py-24 bg-primary text-white overflow-hidden">
+        <div className="container mx-auto px-6 md:px-12">
+          <div className="flex flex-col lg:flex-row gap-16 items-center">
+            <motion.div
+              initial={{ opacity: 0, x: -40 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8 }}
+              className="w-full lg:w-1/2"
             >
-              Learn more about our methodology
-              <span className="ml-2 transform group-hover:translate-x-1 transition-transform">→</span>
-            </a>
-          </motion.div>
-
-          {/* Right Side */}
-          <motion.div
-            initial={{ opacity: 0, x: 40 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true, margin: "-100px" }}
-            transition={{ duration: 0.8 }}
-            className="w-full lg:w-1/2 relative"
-          >
-            {/* Background design element */}
-            <div className="absolute inset-0 bg-primary/5 rounded-3xl transform rotate-3 scale-105 z-0" />
-            
-            <div className="bg-white rounded-3xl p-8 md:p-12 relative z-10 border border-border/50 shadow-xl">
-              <h3 className="text-2xl font-semibold mb-8 text-foreground">
-                The Invest Trust Advantage
-              </h3>
-              
-              <div className="space-y-6">
-                {BULLETS.map((bullet, index) => (
-                  <motion.div
-                    key={index}
-                    initial={{ opacity: 0, y: 10 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ delay: index * 0.15 + 0.4 }}
-                    className="flex items-start gap-4"
-                  >
-                    <CheckCircle2 className="text-gold mt-1 flex-shrink-0" size={24} />
-                    <p className="text-lg font-medium text-foreground/90">
-                      {bullet}
-                    </p>
-                  </motion.div>
-                ))}
+              <span className="text-white/60 font-semibold tracking-wider uppercase text-sm mb-3 block">
+                Our Approach
+              </span>
+              <h2 className="text-3xl md:text-5xl font-bold text-white mb-6 leading-tight">
+                A Disciplined Approach to Wealth Management
+              </h2>
+              <p className="text-lg text-white/80 mb-10 leading-relaxed">
+                We combine market intelligence, structured execution, and rigorous risk management to deliver consistent outcomes.
+              </p>
+              <div className="space-y-4">
+                {PHILOSOPHY.map((item, index) => {
+                  const Icon = item.icon;
+                  return (
+                    <motion.div
+                      key={index}
+                      initial={{ opacity: 0, x: -20 }}
+                      whileInView={{ opacity: 1, x: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ delay: index * 0.15 + 0.3 }}
+                      className="flex items-center gap-4 bg-white/10 rounded-xl px-6 py-4 border border-white/10"
+                    >
+                      <Icon className="text-gold flex-shrink-0" size={22} />
+                      <span className="font-medium text-white">{item.label}</span>
+                    </motion.div>
+                  );
+                })}
               </div>
+            </motion.div>
 
-              <div className="mt-12 p-6 bg-primary text-white rounded-xl">
-                <p className="font-medium text-lg mb-2">Ready to secure your future?</p>
-                <p className="text-white/80 text-sm">Join the thousands who trust us with their portfolios.</p>
+            <motion.div
+              initial={{ opacity: 0, x: 40 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8 }}
+              className="w-full lg:w-1/2"
+            >
+              <div className="bg-white rounded-3xl p-10 text-foreground shadow-2xl">
+                <h3 className="text-2xl font-bold mb-2 text-foreground">The Invest-Trust Advantage</h3>
+                <p className="text-muted-foreground text-sm mb-8">What sets our investment process apart.</p>
+                <div className="space-y-5">
+                  {ADVANTAGES.map((adv, index) => (
+                    <motion.div
+                      key={index}
+                      initial={{ opacity: 0, y: 10 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ delay: index * 0.12 + 0.4 }}
+                      className="flex items-start gap-4 group"
+                    >
+                      <CheckCircle2 className="text-primary mt-0.5 flex-shrink-0" size={22} />
+                      <p className="text-base font-medium text-foreground/90">{adv}</p>
+                    </motion.div>
+                  ))}
+                </div>
+                <div className="mt-10 border-t border-border pt-8">
+                  <p className="text-sm text-muted-foreground leading-relaxed">
+                    Detailed investment memoranda and portfolio reporting are provided to all clients. Every investment is carefully structured, reviewed, and managed within a disciplined framework.
+                  </p>
+                </div>
               </div>
-            </div>
-          </motion.div>
+            </motion.div>
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
+    </>
   );
 }

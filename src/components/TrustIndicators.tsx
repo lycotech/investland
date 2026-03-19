@@ -5,9 +5,9 @@ import { motion } from 'framer-motion';
 
 const INDICATORS = [
   { icon: ShieldCheck, label: 'SEC Licensed & Regulated' },
-  { icon: Users, label: 'Trusted by 10k+ Investors' },
-  { icon: TrendingUp, label: 'Research-Driven Strategy' },
-  { icon: Award, label: 'Award-Winning Firm' },
+  { icon: TrendingUp, label: 'Institutional-Grade Investment Framework' },
+  { icon: Award, label: 'Disciplined Risk Management' },
+  { icon: Users, label: 'Trusted by Private & Corporate Capital' },
 ];
 
 export default function TrustIndicators() {

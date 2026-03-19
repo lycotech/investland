@@ -57,8 +57,11 @@ export default function Footer() {
 
         {/* Disclaimer & Copyright */}
         <div className="border-t border-white/10 pt-8 mt-12 flex flex-col items-center text-center">
-          <p className="text-xs text-white/40 max-w-4xl mb-6 leading-relaxed">
-            <strong>Disclaimer:</strong> Investments are subject to market risks. Read all scheme-related documents carefully before investing. Past performance is not indicative of future returns. Invest Trust Asset Management Limited is licensed and regulated by the Securities and Exchange Commission (SEC). The information on this website is intended for informational purposes only and does not constitute financial, legal, or tax advice.
+          <p className="text-xs text-white/40 max-w-4xl mb-4 leading-relaxed">
+            <strong>Disclaimer:</strong> Investments are subject to market risks. Read all scheme-related documents carefully before investing. Past performance is not indicative of future returns. Invest-Trust Asset Management Limited is licensed and regulated by the Securities and Exchange Commission (SEC). The information on this website is intended for informational purposes only and does not constitute financial, legal, or tax advice.
+          </p>
+          <p className="text-xs text-white/50 mb-6">
+            <strong className="text-white/70">Note:</strong> Typical mandates start from ₦10,000,000 and above. We work exclusively with clients deploying serious, long-term capital.
           </p>
           <p className="text-sm text-white/50">
             &copy; {currentYear} Invest Trust Asset Management Limited. All rights reserved. &nbsp;|&nbsp; <a href="https://investtrustasset.com" className="hover:text-gold transition-colors">investtrustasset.com</a>
