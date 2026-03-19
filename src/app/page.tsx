@@ -5,6 +5,7 @@ import ServicesSection from "@/components/ServicesSection";
 import ValueProposition from "@/components/ValueProposition";
 import InvestmentCalculator from "@/components/InvestmentCalculator";
 import AboutSection from "@/components/AboutSection";
+import BoardSection from "@/components/BoardSection";
 import Process from "@/components/Process";
 import InsightsSection from "@/components/InsightsSection";
 import ContactSection from "@/components/ContactSection";
@@ -27,8 +28,9 @@ export default function Home() {
       {/* Interactive Tool */}
       <InvestmentCalculator />
 
-      {/* About & Process */}
+      {/* About, Board & Process */}
       <AboutSection />
+      <BoardSection />
       <Process />
 
       {/* Insights */}
