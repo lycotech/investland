@@ -5,10 +5,10 @@ import { motion } from 'framer-motion';
 import { AreaChart, Area, XAxis, YAxis, Tooltip, ResponsiveContainer, CartesianGrid } from 'recharts';
 
 export default function InvestmentCalculator() {
-  const [initialInvestment, setInitialInvestment] = useState(10000);
-  const [monthlyContribution, setMonthlyContribution] = useState(1000);
-  const [years, setYears] = useState(10);
-  const [expectedReturn, setExpectedReturn] = useState(8); // 8% annual return
+  const [initialInvestment, setInitialInvestment] = useState(10000000);
+  const [monthlyContribution, setMonthlyContribution] = useState(500000);
+  const [years, setYears] = useState(15);
+  const [expectedReturn, setExpectedReturn] = useState(12); // 12% annual return
 
   // Calculate compound interest projection
   const data = useMemo(() => {
@@ -67,7 +67,7 @@ export default function InvestmentCalculator() {
                 </label>
                 <input 
                   type="range" 
-                  min="0" max="10000000" step="100000"
+                  min="10000000" max="500000000" step="5000000"
                   value={initialInvestment} 
                   onChange={(e) => setInitialInvestment(Number(e.target.value))}
                   className="w-full accent-primary h-2 bg-muted rounded-lg appearance-none cursor-pointer"
@@ -81,7 +81,7 @@ export default function InvestmentCalculator() {
                 </label>
                 <input 
                   type="range" 
-                  min="0" max="2000000" step="10000"
+                  min="0" max="10000000" step="100000"
                   value={monthlyContribution} 
                   onChange={(e) => setMonthlyContribution(Number(e.target.value))}
                   className="w-full accent-primary h-2 bg-muted rounded-lg appearance-none cursor-pointer"
