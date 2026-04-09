@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Inter, Poppins } from "next/font/google";
+import Script from "next/script";
 import "./globals.css";
 
 const inter = Inter({
@@ -132,7 +133,23 @@ export default function RootLayout({
       lang="en"
       className={`${inter.variable} ${poppins.variable} scroll-smooth antialiased`}
     >
-      <body className="flex min-h-screen flex-col">{children}</body>
+      <body className="flex min-h-screen flex-col">
+        {children}
+
+        {/* ─── Google Analytics (GA4) ─────────────────────────────────── */}
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-QE5TGDBZ7S"
+          strategy="afterInteractive"
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-QE5TGDBZ7S');
+          `}
+        </Script>
+      </body>
     </html>
   );
 }
