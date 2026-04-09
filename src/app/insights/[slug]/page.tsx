@@ -13,7 +13,7 @@ export async function generateStaticParams() {
   return INSIGHTS.map((insight) => ({ slug: insight.slug }));
 }
 
-const SITE_URL = 'https://www.investtrustam.com';
+const SITE_URL = 'https://www.investtrustasset.com';
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
@@ -26,11 +26,89 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     title: insight.title,
     description: insight.snippet,
     keywords: [
+      // — Article-specific
       insight.category,
+      insight.title,
+      // — Category-driven long-tail keywords
+      ...(insight.category === 'Wealth Strategy'
+        ? [
+            'wealth strategy Nigeria',
+            'how to build wealth Nigeria',
+            'financial control Nigeria',
+            'wealth planning for professionals Nigeria',
+            'structured wealth Nigeria',
+          ]
+        : insight.category === 'Corporate Finance'
+        ? [
+            'corporate treasury management Nigeria',
+            'idle cash management Nigeria',
+            'corporate investment Nigeria',
+            'business investment Nigeria',
+            'corporate finance advisory Nigeria',
+          ]
+        : insight.category === 'Investment Philosophy'
+        ? [
+            'investment philosophy Nigeria',
+            'risk management investment Nigeria',
+            'liquidity planning Nigeria',
+            'long term investment Nigeria',
+            'investment structure Nigeria',
+          ]
+        : insight.category === 'Risk Management'
+        ? [
+            'investment risk management Nigeria',
+            'illiquid assets Nigeria',
+            'portfolio liquidity Nigeria',
+            'emergency fund investment Nigeria',
+            'capital protection Nigeria',
+          ]
+        : insight.category === 'Legacy Planning'
+        ? [
+            'legacy planning Nigeria',
+            'generational wealth Nigeria',
+            'estate planning Nigeria',
+            'family wealth transfer Nigeria',
+            'wealth succession Nigeria',
+          ]
+        : insight.category === 'Macro & Policy'
+        ? [
+            'Nigeria macroeconomic investment',
+            'Nigeria election investment impact',
+            'policy risk Nigeria investment',
+            'currency risk Nigeria portfolio',
+            'Nigeria market analysis',
+          ]
+        : insight.category === 'Wealth & Wellbeing'
+        ? [
+            'health and wealth Nigeria',
+            'holistic wealth planning Nigeria',
+            'contingency fund Nigeria',
+            'wellness financial planning Nigeria',
+          ]
+        : insight.category === 'Real Estate'
+        ? [
+            'real estate investment Nigeria',
+            'Nigeria property investment',
+            'real estate portfolio Nigeria',
+            'Lagos real estate investment',
+            'illiquid real estate Nigeria',
+          ]
+        : insight.category === 'Capital Access'
+        ? [
+            'capital access Nigeria',
+            'deal flow Nigeria',
+            'investment network Nigeria',
+            'private equity Nigeria',
+            'alternative investments Nigeria',
+          ]
+        : []),
+      // — Base brand & location terms (always present)
+      'Invest-Trust Asset Management',
       'asset management Nigeria',
       'wealth management Nigeria',
+      'investment advisory Nigeria',
       'investment insights Nigeria',
-      'Invest-Trust Asset Management',
+      'Lagos investment firm',
     ],
     alternates: { canonical: pageUrl },
     openGraph: {

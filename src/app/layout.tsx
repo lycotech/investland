@@ -13,7 +13,7 @@ const poppins = Poppins({
   weight: ["400", "500", "600", "700"],
 });
 
-const SITE_URL = "https://www.investtrustam.com";
+const SITE_URL = "https://www.investtrustasset.com";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
@@ -24,16 +24,46 @@ export const metadata: Metadata = {
   description:
     "Invest-Trust Asset Management Limited offers professional portfolio management, wealth advisory, and investment solutions for high-net-worth individuals, families, and institutions in Nigeria.",
   keywords: [
-    "asset management Nigeria",
-    "investment management Lagos",
-    "wealth management Nigeria",
-    "portfolio advisory Nigeria",
-    "fund management Nigeria",
-    "high net worth investment Nigeria",
-    "investment advisory Lagos",
+    // — Brand
     "Invest-Trust Asset Management",
-    "Nigeria capital market",
+    "Invest Trust Asset Management Limited",
+    "investtrustasset.com",
+    // — Core services
+    "asset management Nigeria",
+    "wealth management Nigeria",
+    "portfolio management Nigeria",
+    "investment management Nigeria",
+    "fund management Nigeria",
+    "investment advisory Nigeria",
+    "portfolio advisory Nigeria",
+    "private wealth management Nigeria",
+    "treasury management Nigeria",
+    // — Location specific
+    "asset management Lagos",
+    "wealth management Lagos",
+    "investment advisory Lagos",
+    "asset management company Nigeria",
+    // — Target audience
+    "high net worth investment Nigeria",
+    "HNI investment Nigeria",
+    "institutional investment management Nigeria",
+    "corporate treasury Nigeria",
+    "family wealth planning Nigeria",
+    // — Services
+    "capital investment Nigeria",
+    "fixed income investment Nigeria",
+    "money market investment Nigeria",
     "estate planning Nigeria",
+    "legacy planning Nigeria",
+    "retirement planning Nigeria",
+    // — Market / intent
+    "Nigeria capital market",
+    "best investment company Nigeria",
+    "SEC registered asset manager Nigeria",
+    "how to invest in Nigeria",
+    "wealth advisory firm Nigeria",
+    "financial planning Nigeria",
+    "investment opportunities Nigeria",
   ],
   authors: [{ name: "Invest-Trust Asset Management Limited", url: SITE_URL }],
   creator: "Invest-Trust Asset Management Limited",

@@ -12,7 +12,7 @@ import ContactSection from "@/components/ContactSection";
 import Footer from "@/components/Footer";
 import JsonLd from "@/components/JsonLd";
 
-const SITE_URL = "https://www.investtrustam.com";
+const SITE_URL = "https://www.investtrustasset.com";
 
 const organizationSchema = {
   "@context": "https://schema.org",
