@@ -3,6 +3,7 @@ import Link from 'next/link';
 import { INSIGHTS } from '@/lib/insights-data';
 import type { Metadata } from 'next';
 import { ArrowLeft, CalendarDays, Tag } from 'lucide-react';
+import JsonLd from '@/components/JsonLd';
 
 type Props = {
   params: Promise<{ slug: string }>;
@@ -12,13 +13,47 @@ export async function generateStaticParams() {
   return INSIGHTS.map((insight) => ({ slug: insight.slug }));
 }
 
+const SITE_URL = 'https://www.investtrustam.com';
+
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
   const insight = INSIGHTS.find((a) => a.slug === slug);
   if (!insight) return {};
+
+  const pageUrl = `${SITE_URL}/insights/${insight.slug}`;
+
   return {
-    title: `${insight.title} | Invest-Trust Asset Management`,
+    title: insight.title,
     description: insight.snippet,
+    keywords: [
+      insight.category,
+      'asset management Nigeria',
+      'wealth management Nigeria',
+      'investment insights Nigeria',
+      'Invest-Trust Asset Management',
+    ],
+    alternates: { canonical: pageUrl },
+    openGraph: {
+      type: 'article',
+      url: pageUrl,
+      title: insight.title,
+      description: insight.snippet,
+      siteName: 'Invest-Trust Asset Management',
+      images: [
+        {
+          url: insight.image,
+          width: 1200,
+          height: 630,
+          alt: insight.title,
+        },
+      ],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: insight.title,
+      description: insight.snippet,
+      images: [insight.image],
+    },
   };
 }
 
@@ -30,7 +65,37 @@ export default async function InsightPage({ params }: Props) {
 
   const related = INSIGHTS.filter((a) => a.slug !== slug).slice(0, 3);
 
+  const articleSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'Article',
+    headline: insight.title,
+    description: insight.snippet,
+    image: insight.image,
+    datePublished: insight.date,
+    dateModified: insight.date,
+    author: {
+      '@type': 'Organization',
+      name: 'Invest-Trust Asset Management Limited',
+      url: SITE_URL,
+    },
+    publisher: {
+      '@type': 'Organization',
+      name: 'Invest-Trust Asset Management Limited',
+      logo: {
+        '@type': 'ImageObject',
+        url: `${SITE_URL}/logo.png`,
+      },
+    },
+    mainEntityOfPage: {
+      '@type': 'WebPage',
+      '@id': `${SITE_URL}/insights/${insight.slug}`,
+    },
+    articleSection: insight.category,
+  };
+
   return (
+    <>
+      <JsonLd data={articleSchema} />
     <div className="min-h-screen bg-white text-foreground">
       {/* Top Nav Bar */}
       <header className="fixed top-0 left-0 w-full z-50 bg-white/90 backdrop-blur-md border-b border-border/50 shadow-sm">
@@ -148,5 +213,7 @@ export default async function InsightPage({ params }: Props) {
         &copy; {new Date().getFullYear()} Invest-Trust Asset Management Limited. All rights reserved.
       </footer>
     </div>
+    </>
   );
 }
+

@@ -1,0 +1,22 @@
+{
+  "name": "Invest-Trust Asset Management",
+  "short_name": "InvestTrust",
+  "description": "Professional portfolio management, wealth advisory, and investment solutions for high-net-worth individuals, families, and institutions in Nigeria.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#0a3d62",
+  "lang": "en-NG",
+  "icons": [
+    {
+      "src": "/fav.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/fav.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
