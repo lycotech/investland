@@ -183,7 +183,7 @@ export default async function InsightPage({ params }: Props) {
           </Link>
           <Link
             href="/#insights"
-            className="inline-flex items-center gap-2 text-sm font-medium text-primary hover:text-primary-dark transition-colors"
+            className="inline-flex items-center gap-2 text-sm font-medium text-gold hover:text-gold-light transition-colors"
           >
             <ArrowLeft size={16} />
             Back to Insights
@@ -201,7 +201,7 @@ export default async function InsightPage({ params }: Props) {
           />
           <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent" />
           <div className="absolute bottom-8 left-0 right-0 container mx-auto px-6 md:px-12">
-            <div className="inline-flex items-center gap-2 bg-primary/90 text-white text-xs font-semibold px-4 py-1.5 rounded-full mb-4">
+            <div className="inline-flex items-center gap-2 bg-gold/90 text-primary text-xs font-semibold px-4 py-1.5 rounded-full mb-4">
               <Tag size={12} />
               {insight.category}
             </div>
@@ -221,7 +221,7 @@ export default async function InsightPage({ params }: Props) {
           <h1 className="text-3xl md:text-5xl font-bold text-foreground mb-4 leading-tight">
             {insight.title}
           </h1>
-          <p className="text-xl text-primary font-medium italic mb-10 border-l-4 border-primary pl-4">
+          <p className="text-xl text-gold font-medium italic mb-10 border-l-4 border-gold pl-4">
             {insight.subtitle}
           </p>
 
@@ -245,7 +245,7 @@ export default async function InsightPage({ params }: Props) {
             </p>
             <Link
               href="/#contact"
-              className="inline-flex items-center gap-2 px-8 py-3.5 bg-white text-primary font-semibold rounded-lg hover:bg-white/90 transition-colors"
+              className="inline-flex items-center gap-2 px-8 py-3.5 bg-gold text-primary font-semibold rounded-lg hover:bg-gold-light transition-colors"
             >
               Request a Private Consultation
             </Link>
@@ -273,8 +273,8 @@ export default async function InsightPage({ params }: Props) {
                     />
                   </div>
                   <div className="p-5 flex-1">
-                    <span className="text-xs font-semibold text-primary">{post.category}</span>
-                    <h3 className="text-base font-semibold text-foreground mt-2 mb-1 group-hover:text-primary transition-colors line-clamp-2">
+                    <span className="text-xs font-semibold text-gold">{post.category}</span>
+                    <h3 className="text-base font-semibold text-foreground mt-2 mb-1 group-hover:text-gold transition-colors line-clamp-2">
                       {post.title}
                     </h3>
                     <p className="text-xs text-muted-foreground italic">{post.subtitle}</p>

@@ -76,7 +76,7 @@ export default function ContactSection() {
                   <input
                     type="text"
                     id="name"
-                    className="w-full px-4 py-3 rounded-lg border border-border bg-muted/50 focus:bg-white focus:outline-none focus:ring-2 focus:ring-primary/20 transition-all font-sans"
+                    className="w-full px-4 py-3 rounded-lg border border-border bg-muted/50 focus:bg-white focus:outline-none focus:ring-2 focus:ring-gold/20 transition-all font-sans"
                     placeholder="Your full name"
                   />
                 </div>
@@ -85,7 +85,7 @@ export default function ContactSection() {
                   <input
                     type="email"
                     id="email"
-                    className="w-full px-4 py-3 rounded-lg border border-border bg-muted/50 focus:bg-white focus:outline-none focus:ring-2 focus:ring-primary/20 transition-all font-sans"
+                    className="w-full px-4 py-3 rounded-lg border border-border bg-muted/50 focus:bg-white focus:outline-none focus:ring-2 focus:ring-gold/20 transition-all font-sans"
                     placeholder="your@email.com"
                   />
                 </div>
@@ -95,7 +95,7 @@ export default function ContactSection() {
                 <label htmlFor="interest" className="text-sm font-medium text-foreground/80">Nature of Enquiry</label>
                 <select
                   id="interest"
-                  className="w-full px-4 py-3 rounded-lg border border-border bg-muted/50 focus:bg-white focus:outline-none focus:ring-2 focus:ring-primary/20 transition-all text-foreground font-sans appearance-none"
+                  className="w-full px-4 py-3 rounded-lg border border-border bg-muted/50 focus:bg-white focus:outline-none focus:ring-2 focus:ring-gold/20 transition-all text-foreground font-sans appearance-none"
                 >
                   <option value="">Select an option</option>
                   <option value="individual">Individual Portfolio Management</option>
@@ -113,7 +113,7 @@ export default function ContactSection() {
                 <textarea
                   id="message"
                   rows={4}
-                  className="w-full px-4 py-3 rounded-lg border border-border bg-muted/50 focus:bg-white focus:outline-none focus:ring-2 focus:ring-primary/20 transition-all font-sans resize-none"
+                  className="w-full px-4 py-3 rounded-lg border border-border bg-muted/50 focus:bg-white focus:outline-none focus:ring-2 focus:ring-gold/20 transition-all font-sans resize-none"
                   placeholder="Tell us about your investment objectives and the capital you are looking to deploy..."
                 ></textarea>
               </div>

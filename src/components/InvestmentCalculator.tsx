@@ -139,12 +139,12 @@ export default function InvestmentCalculator() {
                   <AreaChart data={data} margin={{ top: 10, right: 10, left: 0, bottom: 0 }}>
                     <defs>
                       <linearGradient id="colorBalance" x1="0" y1="0" x2="0" y2="1">
-                        <stop offset="5%" stopColor="#0B3C5D" stopOpacity={0.3}/>
-                        <stop offset="95%" stopColor="#0B3C5D" stopOpacity={0}/>
+                        <stop offset="5%" stopColor="#071A2D" stopOpacity={0.3}/>
+                        <stop offset="95%" stopColor="#071A2D" stopOpacity={0}/>
                       </linearGradient>
                       <linearGradient id="colorInvested" x1="0" y1="0" x2="0" y2="1">
-                        <stop offset="5%" stopColor="#C9A54C" stopOpacity={0.8}/>
-                        <stop offset="95%" stopColor="#C9A54C" stopOpacity={0.2}/>
+                        <stop offset="5%" stopColor="#C8A45D" stopOpacity={0.8}/>
+                        <stop offset="95%" stopColor="#C8A45D" stopOpacity={0.2}/>
                       </linearGradient>
                     </defs>
                     <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="#e2e8f0" />
@@ -167,8 +167,8 @@ export default function InvestmentCalculator() {
                       formatter={(value: any) => formatCurrency(Number(value))}
                       contentStyle={{ borderRadius: '8px', border: 'none', boxShadow: '0 10px 15px -3px rgb(0 0 0 / 0.1)' }}
                     />
-                    <Area type="monotone" dataKey="balance" name="Total Balance" stroke="#0B3C5D" strokeWidth={3} fillOpacity={1} fill="url(#colorBalance)" />
-                    <Area type="monotone" dataKey="invested" name="Total Invested" stroke="#C9A54C" strokeWidth={2} fillOpacity={1} fill="url(#colorInvested)" />
+                    <Area type="monotone" dataKey="balance" name="Total Balance" stroke="#071A2D" strokeWidth={3} fillOpacity={1} fill="url(#colorBalance)" />
+                    <Area type="monotone" dataKey="invested" name="Total Invested" stroke="#C8A45D" strokeWidth={2} fillOpacity={1} fill="url(#colorInvested)" />
                   </AreaChart>
                 </ResponsiveContainer>
               </div>

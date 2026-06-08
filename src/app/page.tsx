@@ -1,12 +1,11 @@
 import Navbar from "@/components/Navbar";
 import HeroSection from "@/components/HeroSection";
-import TrustIndicators from "@/components/TrustIndicators";
-import ServicesSection from "@/components/ServicesSection";
-import ValueProposition from "@/components/ValueProposition";
-import InvestmentCalculator from "@/components/InvestmentCalculator";
-import AboutSection from "@/components/AboutSection";
+import WealthPillars from "@/components/WealthPillars";
+import WhyWealthFails from "@/components/WhyWealthFails";
+import SolutionsSection from "@/components/SolutionsSection";
+import InvestmentPhilosophy from "@/components/InvestmentPhilosophy";
 import BoardSection from "@/components/BoardSection";
-import Process from "@/components/Process";
+import WealthBlueprintSection from "@/components/WealthBlueprintSection";
 import InsightsSection from "@/components/InsightsSection";
 import ContactSection from "@/components/ContactSection";
 import Footer from "@/components/Footer";
@@ -21,14 +20,21 @@ const organizationSchema = {
   url: SITE_URL,
   logo: `${SITE_URL}/logo.png`,
   description:
-    "Professional portfolio management, wealth advisory, and investment solutions for high-net-worth individuals, families, and institutions in Nigeria.",
+    "Building Africa's wealth infrastructure through disciplined capital management, institutional-grade research and purpose-built investment solutions.",
   address: {
     "@type": "PostalAddress",
     addressCountry: "NG",
     addressLocality: "Lagos",
   },
   areaServed: "NG",
-  serviceType: ["Asset Management", "Wealth Advisory", "Portfolio Management", "Investment Advisory"],
+  serviceType: [
+    "Asset Management",
+    "Wealth Advisory",
+    "Retirement Income Solutions",
+    "Private Credit Investments",
+    "Real Asset Opportunities",
+    "Family Office Services",
+  ],
   sameAs: [],
 };
 
@@ -54,26 +60,30 @@ export default function Home() {
       <JsonLd data={websiteSchema} />
 
       <main className="min-h-screen bg-background text-foreground scroll-smooth">
-        {/* Navigation */}
         <Navbar />
 
-        {/* Hero & Trust Indicators */}
+        {/* Section 1: Hero */}
         <HeroSection />
-        <TrustIndicators />
 
-        {/* Services & Value */}
-        <ServicesSection />
-        <ValueProposition />
+        {/* Section 2: Wealth Is More Than Investment Returns */}
+        <WealthPillars />
 
-        {/* Interactive Tool */}
-        <InvestmentCalculator />
+        {/* Section 3: Why Wealth Fails + ITAML Framework */}
+        <WhyWealthFails />
 
-        {/* About, Board & Process */}
-        <AboutSection />
+        {/* Section 4: Solutions */}
+        <SolutionsSection />
+
+        {/* Section 5: Investment Philosophy */}
+        <InvestmentPhilosophy />
+
+        {/* Section 6: Leadership */}
         <BoardSection />
-        <Process />
 
-        {/* Insights */}
+        {/* Section 7: Wealth Blueprint (Interactive) */}
+        <WealthBlueprintSection />
+
+        {/* Section 8: Market Insights */}
         <InsightsSection />
 
         {/* Contact & Footer */}

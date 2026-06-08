@@ -31,7 +31,7 @@ export default function Process() {
     <section className="py-24 bg-muted/30">
       <div className="container mx-auto px-6 md:px-12">
         <div className="text-center max-w-2xl mx-auto mb-16">
-          <span className="text-primary font-semibold tracking-wider uppercase text-sm mb-3 block">
+          <span className="text-gold font-semibold tracking-wider uppercase text-sm mb-3 block">
             How We Work
           </span>
           <h2 className="text-3xl md:text-5xl font-bold text-foreground mb-6">

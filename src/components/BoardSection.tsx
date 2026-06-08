@@ -1,137 +1,108 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { Linkedin } from 'lucide-react';
 
 const BOARD_MEMBERS = [
   {
-    name: 'Full Name',
-    role: 'Chairman, Board of Directors',
-    bio: 'Details coming soon.',
-    initials: 'CN',
+    role: 'Chairman',
+    title: 'Board of Directors',
+    descriptor: 'Providing strategic oversight and governance to ensure the highest standards of fiduciary responsibility.',
+    initials: 'CH',
   },
   {
-    name: 'Full Name',
-    role: 'Managing Director / CEO',
-    bio: 'Details coming soon.',
-    initials: 'CN',
+    role: 'Managing Director',
+    title: 'Chief Executive',
+    descriptor: 'Leading the firm\'s investment strategy, client relationships and institutional development across Africa.',
+    initials: 'MD',
   },
   {
-    name: 'Full Name',
-    role: 'Executive Director, Investments',
-    bio: 'Details coming soon.',
-    initials: 'CN',
+    role: 'Investment Committee',
+    title: 'Capital Allocation',
+    descriptor: 'Reviewing every mandate and investment decision. Institutional discipline applied to every deployment of capital.',
+    initials: 'IC',
   },
   {
-    name: 'Full Name',
-    role: 'Non-Executive Director',
-    bio: 'Details coming soon.',
-    initials: 'CN',
-  },
-];
-
-const LEADERSHIP_TEAM = [
-  {
-    name: 'Full Name',
-    role: 'Head, Portfolio Management',
-    initials: 'CN',
-  },
-  {
-    name: 'Full Name',
-    role: 'Head, Risk & Compliance',
-    initials: 'CN',
-  },
-  {
-    name: 'Full Name',
-    role: 'Head, Client Advisory',
-    initials: 'CN',
-  },
-  {
-    name: 'Full Name',
-    role: 'Chief Finance Officer',
-    initials: 'CN',
+    role: 'Independent Directors',
+    title: 'Governance & Oversight',
+    descriptor: 'Bringing independent judgment and external perspective to protect the interests of every client.',
+    initials: 'ID',
   },
 ];
 
 export default function BoardSection() {
   return (
-    <section id="board" className="py-24 bg-muted/20">
+    <section id="leadership" className="py-24 bg-background">
       <div className="container mx-auto px-6 md:px-12">
 
         {/* Header */}
-        <div className="text-center max-w-2xl mx-auto mb-20">
-          <span className="text-primary font-semibold tracking-wider uppercase text-sm mb-3 block">
-            Governance & Leadership
-          </span>
-          <h2 className="text-3xl md:text-5xl font-bold text-foreground mb-5">
-            Board &amp; Leadership Team
-          </h2>
-          <p className="text-lg text-muted-foreground leading-relaxed">
-            Invest-Trust is governed by experienced professionals with deep expertise across capital markets, corporate finance, and institutional investment management.
-          </p>
+        <div className="flex flex-col lg:flex-row gap-16 items-start mb-20">
+          <motion.div
+            initial={{ opacity: 0, x: -30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.7 }}
+            className="w-full lg:w-2/5"
+          >
+            <span className="text-gold font-semibold tracking-wider uppercase text-sm mb-3 block">
+              Governance & Leadership
+            </span>
+            <h2 className="text-3xl md:text-5xl font-bold text-foreground leading-tight mb-6">
+              The Team Behind Your Capital
+            </h2>
+            <p className="text-lg text-muted-foreground leading-relaxed">
+              Invest-Trust is governed by experienced professionals with deep expertise across capital markets, corporate finance and institutional wealth management.
+            </p>
+          </motion.div>
         </div>
 
-        {/* Board of Directors */}
-        <div className="mb-20">
-          <div className="flex items-center gap-4 mb-10">
-            <h3 className="text-xl font-bold text-foreground whitespace-nowrap">Board of Directors</h3>
-            <div className="flex-1 h-px bg-border" />
-          </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {BOARD_MEMBERS.map((member, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="group bg-white rounded-2xl p-8 border border-border/50 shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all duration-300 text-center"
-              >
-                {/* Avatar placeholder */}
-                <div className="w-20 h-20 rounded-full bg-primary/8 border-2 border-primary/20 flex items-center justify-center mx-auto mb-5 group-hover:bg-primary/15 transition-colors">
-                  <span className="text-2xl font-bold text-primary/40">?</span>
+        {/* Leadership Cards */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          {BOARD_MEMBERS.map((member, index) => (
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
+              className="group bg-background rounded-2xl border border-border/50 overflow-hidden hover:shadow-xl hover:-translate-y-1 transition-all duration-300"
+            >
+              {/* Image Placeholder */}
+              <div className="relative h-56 bg-primary/5 flex items-end overflow-hidden">
+                <div className="absolute inset-0 flex items-center justify-center">
+                  <div className="w-24 h-24 rounded-full bg-primary/10 border-2 border-primary/15 flex items-center justify-center">
+                    <span className="text-2xl font-bold text-primary/30">{member.initials}</span>
+                  </div>
                 </div>
-                <div className="w-12 h-0.5 bg-gold mx-auto mb-4" />
-                <h4 className="text-base font-semibold text-foreground mb-1">{member.name}</h4>
-                <p className="text-sm text-primary font-medium mb-3">{member.role}</p>
-                <p className="text-xs text-muted-foreground italic">{member.bio}</p>
-              </motion.div>
-            ))}
-          </div>
-        </div>
+                {/* Gold bar at top */}
+                <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-gold/60 to-gold/20" />
+              </div>
 
-        {/* Leadership Team */}
-        <div>
-          <div className="flex items-center gap-4 mb-10">
-            <h3 className="text-xl font-bold text-foreground whitespace-nowrap">Leadership Team</h3>
-            <div className="flex-1 h-px bg-border" />
-          </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {LEADERSHIP_TEAM.map((member, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="group flex items-center gap-4 bg-white rounded-xl px-6 py-5 border border-border/50 shadow-sm hover:shadow-md hover:border-primary/30 transition-all duration-300"
-              >
-                <div className="w-12 h-12 rounded-full bg-primary/8 flex items-center justify-center flex-shrink-0 group-hover:bg-primary/15 transition-colors">
-                  <span className="text-lg font-bold text-primary/40">?</span>
-                </div>
-                <div>
-                  <p className="font-semibold text-foreground text-sm">{member.name}</p>
-                  <p className="text-xs text-muted-foreground mt-0.5">{member.role}</p>
-                </div>
-              </motion.div>
-            ))}
-          </div>
+              <div className="p-7">
+                <div className="w-8 h-0.5 bg-gold mb-4" />
+                <h3 className="text-lg font-bold text-foreground mb-1 group-hover:text-gold transition-colors">
+                  {member.role}
+                </h3>
+                <p className="text-xs font-semibold text-primary uppercase tracking-wider mb-4">
+                  {member.title}
+                </p>
+                <p className="text-sm text-muted-foreground leading-relaxed">
+                  {member.descriptor}
+                </p>
+              </div>
+            </motion.div>
+          ))}
         </div>
 
         {/* Note */}
-        <p className="text-center text-xs text-muted-foreground mt-14 italic">
+        <motion.p
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.5 }}
+          className="text-center text-xs text-muted-foreground mt-14 italic"
+        >
           Full board and management profiles will be published shortly.
-        </p>
+        </motion.p>
 
       </div>
     </section>

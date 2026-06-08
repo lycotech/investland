@@ -63,7 +63,7 @@ export default function ServicesSection() {
               transition={{ duration: 0.7 }}
               className="w-full lg:w-2/5 lg:sticky lg:top-28"
             >
-              <span className="text-primary font-semibold tracking-wider uppercase text-sm mb-3 block">
+              <span className="text-gold font-semibold tracking-wider uppercase text-sm mb-3 block">
                 What We Do
               </span>
               <h2 className="text-3xl md:text-5xl font-bold text-foreground mb-6 leading-tight">
@@ -92,7 +92,7 @@ export default function ServicesSection() {
                     <div className="w-14 h-14 bg-primary/5 rounded-lg flex items-center justify-center mb-6 group-hover:bg-primary group-hover:text-white transition-colors duration-300">
                       <Icon size={26} className="text-primary group-hover:text-white" />
                     </div>
-                    <h3 className="text-lg font-semibold mb-3 text-foreground group-hover:text-primary transition-colors">
+                    <h3 className="text-lg font-semibold mb-3 text-foreground group-hover:text-gold transition-colors">
                       {service.title}
                     </h3>
                     <p className="text-muted-foreground leading-relaxed text-sm">
@@ -110,7 +110,7 @@ export default function ServicesSection() {
       <section className="py-24 bg-white">
         <div className="container mx-auto px-6 md:px-12">
           <div className="text-center max-w-3xl mx-auto mb-16">
-            <span className="text-primary font-semibold tracking-wider uppercase text-sm mb-3 block">
+            <span className="text-gold font-semibold tracking-wider uppercase text-sm mb-3 block">
               Who We Serve
             </span>
             <h2 className="text-3xl md:text-5xl font-bold text-foreground mb-6">

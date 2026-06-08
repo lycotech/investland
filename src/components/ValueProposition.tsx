@@ -81,7 +81,7 @@ export default function ValueProposition() {
                       transition={{ delay: index * 0.12 + 0.4 }}
                       className="flex items-start gap-4 group"
                     >
-                      <CheckCircle2 className="text-primary mt-0.5 flex-shrink-0" size={22} />
+                      <CheckCircle2 className="text-gold mt-0.5 flex-shrink-0" size={22} />
                       <p className="text-base font-medium text-foreground/90">{adv}</p>
                     </motion.div>
                   ))}

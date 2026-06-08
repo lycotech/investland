@@ -47,7 +47,7 @@ export default function AboutSection() {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="w-full lg:w-1/2"
           >
-            <span className="text-primary font-semibold tracking-wider uppercase text-sm mb-3 block">
+            <span className="text-gold font-semibold tracking-wider uppercase text-sm mb-3 block">
               About Invest-Trust
             </span>
             <h2 className="text-3xl md:text-5xl font-bold text-foreground mb-6 leading-tight">
