@@ -122,7 +122,7 @@ export default function AboutPage() {
                   &ldquo;I wanted to build the institution I wished existed when I was first deploying serious capital.&rdquo;
                 </p>
                 <p>
-                  That is the origin of ITAML. And it remains the only reason it exists.
+                  That is the origin of ITAML. And it remains one of the foremost reasons it exists.
                 </p>
               </div>
             </div>

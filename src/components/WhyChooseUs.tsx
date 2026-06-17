@@ -1,7 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { Layers, ShieldCheck, Lock, BarChart2, FileSearch } from 'lucide-react';
+import { Layers, ShieldCheck, Lock, BarChart2, FileSearch, ExternalLink } from 'lucide-react';
 
 const DIFFERENTIATORS = [
   {
@@ -17,6 +17,7 @@ const DIFFERENTIATORS = [
     title: 'SEC Licensed and Independently Regulated',
     description:
       'ITAML is licensed by the Securities and Exchange Commission of Nigeria. Every client relationship is governed by a regulated framework with defined fiduciary obligations — not just best efforts.',
+    verifyHref: 'https://sec.gov.ng/for-investors/find-a-registered-operator/?query=Invest-trust',
   },
   {
     number: '03',
@@ -89,6 +90,17 @@ export default function WhyChooseUs() {
                     <h3 className="text-lg font-bold text-foreground">{item.title}</h3>
                   </div>
                   <p className="text-muted-foreground text-sm leading-relaxed">{item.description}</p>
+                {'verifyHref' in item && item.verifyHref && (
+                  <a
+                    href={item.verifyHref as string}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="mt-2 inline-flex items-center gap-1 text-xs text-primary font-semibold hover:underline"
+                  >
+                    Verify on SEC.gov.ng
+                    <ExternalLink size={11} />
+                  </a>
+                )}
                 </div>
               </motion.div>
             );

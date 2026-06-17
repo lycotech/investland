@@ -74,21 +74,29 @@ export default function Footer() {
               { label: 'Trustees', sub: 'Details to be published', accent: false },
               { label: 'Auditors', sub: 'Details to be published', accent: false },
               { label: 'Legal Advisers', sub: 'Details to be published', accent: false },
-            ].map((badge) => (
-              <div
-                key={badge.label}
-                className={`rounded-xl p-5 border ${
-                  badge.accent
-                    ? 'bg-white/10 border-white/25'
-                    : 'bg-white/4 border-white/8'
-                }`}
-              >
-                <p className="text-sm font-bold mb-1 text-white/85">
-                  {badge.label}
-                </p>
-                <p className="text-xs text-white/40 leading-snug">{badge.sub}</p>
-              </div>
-            ))}
+            ].map((badge) =>
+              badge.accent ? (
+                <a
+                  key={badge.label}
+                  href="https://sec.gov.ng/for-investors/find-a-registered-operator/?query=Invest-trust"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="rounded-xl p-5 border bg-white/10 border-white/25 hover:bg-white/15 transition-colors block"
+                >
+                  <p className="text-sm font-bold mb-1 text-white/85">{badge.label}</p>
+                  <p className="text-xs text-white/40 leading-snug">{badge.sub}</p>
+                  <p className="text-xs text-blue-300/70 mt-1">View SEC record →</p>
+                </a>
+              ) : (
+                <div
+                  key={badge.label}
+                  className="rounded-xl p-5 border bg-white/4 border-white/8"
+                >
+                  <p className="text-sm font-bold mb-1 text-white/85">{badge.label}</p>
+                  <p className="text-xs text-white/40 leading-snug">{badge.sub}</p>
+                </div>
+              )
+            )}
           </div>
         </div>
 

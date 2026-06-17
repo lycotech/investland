@@ -7,7 +7,12 @@ import { ChevronRight, ShieldCheck, BarChart3, Landmark, Users, ArrowRight } fro
 const HeroBackground = dynamic(() => import('./HeroBackground'), { ssr: false });
 
 const STATS = [
-  { icon: ShieldCheck, label: 'SEC Licensed', sub: 'Nigeria' },
+  {
+    icon: ShieldCheck,
+    label: 'SEC Licensed',
+    sub: 'Verify Registration',
+    href: 'https://sec.gov.ng/for-investors/find-a-registered-operator/?query=Invest-trust',
+  },
   { icon: BarChart3, label: 'Institutional Grade', sub: 'Research' },
   { icon: Landmark, label: 'Private Market', sub: 'Access' },
   { icon: Users, label: 'Retirement', sub: 'Solutions' },
@@ -65,9 +70,14 @@ export default function HeroSection() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.7, ease: 'easeOut' }}
               >
-                <div className="inline-flex items-center gap-2 bg-white/12 border border-white/20 text-white/90 text-xs font-semibold tracking-widest uppercase px-4 py-2 rounded-full mb-8">
+                <a
+                  href="https://sec.gov.ng/for-investors/find-a-registered-operator/?query=Invest-trust"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 bg-white/12 border border-white/20 text-white/90 text-xs font-semibold tracking-widest uppercase px-4 py-2 rounded-full mb-8 hover:bg-white/20 transition-colors"
+                >
                   SEC Licensed Asset Manager · Nigeria
-                </div>
+                </a>
 
                 <h1 className="text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold text-white leading-[1.05] tracking-tight mb-6">
                   Building Africa&apos;s <br className="hidden md:block" />
@@ -123,7 +133,14 @@ export default function HeroSection() {
                   </div>
                   <div>
                     <p className="text-white font-bold text-sm">SEC Licensed</p>
-                    <p className="text-white/55 text-xs">Securities & Exchange Commission · Nigeria</p>
+                    <a
+                      href="https://sec.gov.ng/for-investors/find-a-registered-operator/?query=Invest-trust"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-blue-200/70 text-xs hover:text-blue-200 transition-colors"
+                    >
+                      Verify on SEC.gov.ng →
+                    </a>
                   </div>
                 </div>
                 <div className="h-px bg-white/10 mb-5" />
@@ -171,6 +188,15 @@ export default function HeroSection() {
           <div className="grid grid-cols-2 md:grid-cols-4">
             {STATS.map((stat, i) => {
               const Icon = stat.icon;
+              const inner = (
+                <>
+                  <Icon size={18} className="text-blue-200 flex-shrink-0" />
+                  <div>
+                    <p className="text-white font-semibold text-sm leading-none">{stat.label}</p>
+                    <p className="text-white/50 text-xs mt-0.5">{stat.sub}</p>
+                  </div>
+                </>
+              );
               return (
                 <motion.div
                   key={stat.label}
@@ -179,11 +205,16 @@ export default function HeroSection() {
                   transition={{ duration: 0.5, delay: 0.55 + i * 0.08 }}
                   className="flex items-center gap-3 py-5 px-4 first:pl-0 border-r border-white/8 last:border-0"
                 >
-                  <Icon size={18} className="text-blue-200 flex-shrink-0" />
-                  <div>
-                    <p className="text-white font-semibold text-sm leading-none">{stat.label}</p>
-                    <p className="text-white/50 text-xs mt-0.5">{stat.sub}</p>
-                  </div>
+                  {stat.href ? (
+                    <a
+                      href={stat.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center gap-3 hover:opacity-80 transition-opacity"
+                    >
+                      {inner}
+                    </a>
+                  ) : inner}
                 </motion.div>
               );
             })}
