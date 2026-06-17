@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X, ChevronDown } from 'lucide-react';
 import Link from 'next/link';
+import ThemeToggle from './ThemeToggle';
 
 const SOLUTIONS_DROPDOWN = [
   { label: 'Retirement Income Solutions', href: '/retirement' },
@@ -33,8 +34,10 @@ export default function Navbar() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const linkClass = `text-sm font-medium transition-colors hover:text-gold ${
-    isScrolled ? 'text-foreground/80' : 'text-white/85'
+  const linkClass = `text-sm font-medium transition-colors ${
+    isScrolled
+      ? 'text-foreground/80 hover:text-primary'
+      : 'text-white/85 hover:text-white'
   }`;
 
   return (
@@ -91,7 +94,7 @@ export default function Navbar() {
                     <Link
                       key={item.label}
                       href={item.href}
-                      className="block px-5 py-3 text-sm text-foreground/80 hover:text-gold hover:bg-muted/60 transition-colors"
+                      className="block px-5 py-3 text-sm text-foreground/80 hover:text-primary hover:bg-muted/60 transition-colors"
                     >
                       {item.label}
                     </Link>
@@ -107,26 +110,31 @@ export default function Navbar() {
             </Link>
           ))}
 
+          <ThemeToggle className={isScrolled ? 'text-foreground/80' : 'text-white/85'} />
+
           <Link
             href="/#contact"
             className={`px-5 py-2.5 text-sm font-semibold rounded-md transition-colors shadow-sm ${
               isScrolled
                 ? 'bg-primary text-white hover:bg-primary-dark'
-                : 'bg-gold text-primary hover:bg-gold-light'
+                : 'bg-white text-primary hover:bg-blue-50'
             }`}
           >
             Start Investing
           </Link>
         </nav>
 
-        {/* Mobile Toggle */}
-        <button
-          type="button"
-          className={`md:hidden transition-colors ${isScrolled ? 'text-foreground' : 'text-white'}`}
-          onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-        >
-          {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
-        </button>
+        {/* Mobile controls */}
+        <div className="flex items-center gap-2 md:hidden">
+          <ThemeToggle className={isScrolled ? 'text-foreground' : 'text-white'} />
+          <button
+            type="button"
+            className={`transition-colors ${isScrolled ? 'text-foreground' : 'text-white'}`}
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+          >
+            {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+          </button>
+        </div>
       </div>
 
       {/* Mobile Menu */}
@@ -142,7 +150,7 @@ export default function Navbar() {
             <button
               type="button"
               onClick={() => setMobileSolutionsOpen(!mobileSolutionsOpen)}
-              className="flex items-center justify-between text-foreground/80 font-medium py-3 border-b border-border/50 hover:text-gold transition-colors w-full text-left"
+              className="flex items-center justify-between text-foreground/80 font-medium py-3 border-b border-border/50 hover:text-primary transition-colors w-full text-left"
             >
               Solutions
               <ChevronDown
@@ -164,7 +172,7 @@ export default function Navbar() {
                       key={item.label}
                       href={item.href}
                       onClick={() => setMobileMenuOpen(false)}
-                      className="block text-sm text-foreground/70 py-2 hover:text-gold transition-colors"
+                      className="block text-sm text-foreground/70 py-2 hover:text-primary transition-colors"
                     >
                       {item.label}
                     </Link>
@@ -178,7 +186,7 @@ export default function Navbar() {
                 key={link.label}
                 href={link.href}
                 onClick={() => setMobileMenuOpen(false)}
-                className="text-foreground/80 font-medium py-3 border-b border-border/50 hover:text-gold transition-colors"
+                className="text-foreground/80 font-medium py-3 border-b border-border/50 hover:text-primary transition-colors"
               >
                 {link.label}
               </Link>

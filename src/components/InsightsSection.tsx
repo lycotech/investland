@@ -13,11 +13,11 @@ export default function InsightsSection() {
   const visible = showAll ? INSIGHTS : INSIGHTS.slice(0, INITIAL_VISIBLE);
 
   return (
-    <section id="insights" className="py-24 bg-white">
+    <section id="insights" className="py-24 bg-muted">
       <div className="container mx-auto px-6 md:px-12">
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
           <div className="max-w-2xl">
-            <span className="text-gold font-semibold tracking-wider uppercase text-sm mb-3 block">
+            <span className="text-primary font-semibold tracking-wider uppercase text-sm mb-3 block">
               Market Insights
             </span>
             <h2 className="text-3xl md:text-5xl font-bold text-foreground">
@@ -39,7 +39,7 @@ export default function InsightsSection() {
               >
                 <Link
                   href={`/insights/${post.slug}`}
-                  className="group bg-white rounded-2xl overflow-hidden border border-border/50 shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1 flex flex-col h-full block"
+                  className="group bg-background rounded-2xl overflow-hidden border border-border/50 shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1 hover:border-primary/20 flex flex-col h-full block"
                 >
                   <div className="relative h-48 overflow-hidden bg-muted">
                     <img
@@ -47,23 +47,23 @@ export default function InsightsSection() {
                       alt={post.title}
                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                     />
-                    <div className="absolute top-4 left-4 bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full text-xs font-semibold text-gold">
+                    <div className="absolute top-4 left-4 bg-white/95 backdrop-blur-sm px-3 py-1 rounded-full text-xs font-semibold text-primary">
                       {post.category}
                     </div>
                   </div>
                   <div className="p-7 flex-1 flex flex-col">
                     <span className="text-sm text-muted-foreground mb-3">{post.date}</span>
-                    <h3 className="text-xl font-bold text-foreground mb-1 group-hover:text-gold transition-colors">
+                    <h3 className="text-xl font-bold text-foreground mb-1 group-hover:text-primary transition-colors">
                       {post.title}
                     </h3>
-                    <p className="text-sm text-gold/70 font-medium mb-3 italic">
+                    <p className="text-sm text-primary/60 font-medium mb-3 italic">
                       {post.subtitle}
                     </p>
                     <p className="text-muted-foreground mb-6 line-clamp-3 flex-1 text-sm leading-relaxed">
                       {post.snippet}
                     </p>
                     <div className="mt-auto">
-                      <span className="inline-flex items-center text-sm font-semibold text-gold group-hover:gap-3 gap-2 transition-all">
+                      <span className="inline-flex items-center text-sm font-semibold text-primary group-hover:gap-3 gap-2 transition-all">
                         Read Full Article
                         <ArrowRight size={16} />
                       </span>
@@ -75,12 +75,12 @@ export default function InsightsSection() {
           </AnimatePresence>
         </div>
 
-        {/* Show more / less toggle */}
         {INSIGHTS.length > INITIAL_VISIBLE && (
           <div className="mt-14 text-center">
             <button
+              type="button"
               onClick={() => setShowAll(!showAll)}
-              className="inline-flex items-center gap-2 px-8 py-3.5 border-2 border-gold text-gold font-semibold rounded-lg hover:bg-gold hover:text-primary transition-all duration-300 group"
+              className="inline-flex items-center gap-2 px-8 py-3.5 border-2 border-primary text-primary font-semibold rounded-lg hover:bg-primary hover:text-white transition-all duration-300 group"
             >
               {showAll ? 'Show Less' : `View All ${INSIGHTS.length} Articles`}
               <ChevronDown

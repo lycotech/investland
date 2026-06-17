@@ -41,7 +41,7 @@ export default function WhyWealthFails() {
           transition={{ duration: 0.7 }}
           className="text-center max-w-3xl mx-auto mb-16"
         >
-          <span className="text-gold font-semibold tracking-wider uppercase text-sm mb-3 block">
+          <span className="text-blue-200 font-semibold tracking-wider uppercase text-sm mb-3 block">
             The Problem
           </span>
           <h2 className="text-3xl md:text-5xl font-bold text-white leading-tight">
@@ -58,10 +58,10 @@ export default function WhyWealthFails() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="p-8 rounded-2xl bg-white/5 border border-white/10 hover:bg-white/8 hover:border-gold/25 transition-all duration-300"
+              className="p-8 rounded-2xl bg-white/6 border border-white/10 hover:bg-white/10 hover:border-white/25 transition-all duration-300"
             >
-              <div className="w-10 h-10 rounded-full bg-gold/15 flex items-center justify-center mb-5">
-                <span className="text-gold font-bold text-xs">{card.number}</span>
+              <div className="w-10 h-10 rounded-full bg-white/12 flex items-center justify-center mb-5">
+                <span className="text-white font-bold text-xs">{card.number}</span>
               </div>
               <h3 className="text-xl font-bold text-white mb-3">{card.title}</h3>
               <p className="text-white/60 leading-relaxed text-sm">{card.description}</p>
@@ -91,8 +91,8 @@ export default function WhyWealthFails() {
                   transition={{ delay: index * 0.12 + 0.3 }}
                   className="flex flex-col items-center"
                 >
-                  <div className="w-16 h-16 rounded-full bg-white/5 border border-gold/30 flex items-center justify-center mb-3 hover:bg-gold/10 hover:border-gold/60 transition-all duration-300 cursor-default">
-                    <span className="text-gold font-bold text-sm">{index + 1}</span>
+                  <div className="w-16 h-16 rounded-full bg-white/8 border border-white/25 flex items-center justify-center mb-3 hover:bg-white/15 hover:border-white/50 transition-all duration-300 cursor-default">
+                    <span className="text-white font-bold text-sm">{index + 1}</span>
                   </div>
                   <span className="text-white font-semibold text-xs text-center max-w-[90px] leading-snug">
                     {stage}
@@ -101,7 +101,7 @@ export default function WhyWealthFails() {
                 {index < FRAMEWORK_STAGES.length - 1 && (
                   <ArrowRight
                     size={16}
-                    className="text-gold/30 mx-3 mb-6 hidden md:block flex-shrink-0"
+                    className="text-white/25 mx-3 mb-6 hidden md:block flex-shrink-0"
                   />
                 )}
               </div>

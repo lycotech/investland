@@ -114,7 +114,7 @@ export default function ServicesSection() {
               Who We Serve
             </span>
             <h2 className="text-3xl md:text-5xl font-bold text-foreground mb-6">
-              Built for Individuals and Institutions Deploying Serious Capital
+              For Individuals, Families and Institutions
             </h2>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -145,7 +145,7 @@ export default function ServicesSection() {
             transition={{ delay: 0.5 }}
             className="text-center mt-12 text-sm text-muted-foreground border border-border/60 rounded-lg px-6 py-4 max-w-lg mx-auto bg-muted/30"
           >
-            <span className="font-semibold text-foreground">Minimum mandate: ₦10,000,000.</span> We work with clients deploying serious, long-term capital.
+            <span className="font-semibold text-foreground">Minimum mandate: ₦10,000,000.</span> We work with clients who are committed to building and preserving meaningful wealth.
           </motion.p>
         </div>
       </section>

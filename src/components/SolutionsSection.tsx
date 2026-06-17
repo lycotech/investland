@@ -8,7 +8,7 @@ const SOLUTIONS = [
   {
     icon: CalendarDays,
     title: 'Retirement Income Solutions',
-    description: 'Structured income strategies designed to sustain your lifestyle long after you stop working.',
+    description: 'Income strategies designed to sustain your lifestyle well beyond your working years.',
     href: '/retirement',
   },
   {
@@ -55,14 +55,14 @@ export default function SolutionsSection() {
             transition={{ duration: 0.7 }}
             className="w-full lg:w-2/5 lg:sticky lg:top-28"
           >
-            <span className="text-gold font-semibold tracking-wider uppercase text-sm mb-3 block">
+            <span className="text-primary font-semibold tracking-wider uppercase text-sm mb-3 block">
               Our Solutions
             </span>
             <h2 className="text-3xl md:text-5xl font-bold text-foreground mb-6 leading-tight">
               Purpose-Built for Every Stage of Your Wealth Journey
             </h2>
             <p className="text-lg text-muted-foreground leading-relaxed">
-              Whether you are accumulating, protecting or transferring wealth — we have a structured solution designed for your stage.
+              Whether you are accumulating, protecting or transferring wealth — we have a purpose-built solution for your stage.
             </p>
           </motion.div>
 
@@ -79,18 +79,18 @@ export default function SolutionsSection() {
                 >
                   <Link
                     href={solution.href}
-                    className="group flex flex-col bg-background rounded-2xl p-8 border border-border/50 shadow-sm hover:shadow-xl hover:-translate-y-1 hover:border-gold/25 transition-all duration-300 h-full"
+                    className="group flex flex-col bg-background rounded-2xl p-8 border border-border/50 shadow-sm hover:shadow-xl hover:-translate-y-1 hover:border-primary/30 transition-all duration-300 h-full"
                   >
                     <div className="w-13 h-13 w-12 h-12 bg-primary/5 rounded-xl flex items-center justify-center mb-5 group-hover:bg-primary transition-colors duration-300">
                       <Icon size={22} className="text-primary group-hover:text-white transition-colors" />
                     </div>
-                    <h3 className="text-base font-bold mb-2 text-foreground group-hover:text-gold transition-colors">
+                    <h3 className="text-base font-bold mb-2 text-foreground group-hover:text-primary transition-colors">
                       {solution.title}
                     </h3>
                     <p className="text-muted-foreground leading-relaxed text-sm flex-1">
                       {solution.description}
                     </p>
-                    <span className="mt-4 text-xs font-semibold text-gold uppercase tracking-wider opacity-0 group-hover:opacity-100 transition-opacity">
+                    <span className="mt-4 text-xs font-semibold text-primary uppercase tracking-wider opacity-0 group-hover:opacity-100 transition-opacity">
                       Learn More →
                     </span>
                   </Link>

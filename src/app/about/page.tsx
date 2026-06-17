@@ -34,7 +34,7 @@ const CAREER_TIMELINE = [
   {
     era: 'Asset Management',
     description:
-      'Founded and led Invest-Trust Asset Management Limited — bringing together every strand of experience into one institution: structured, SEC-licensed and built for serious capital.',
+      'Founded and led Invest-Trust Asset Management Limited — bringing together every strand of experience into one institution: SEC-licensed, research-driven and built for Africa\'s wealth builders.',
   },
 ];
 

@@ -1,10 +1,14 @@
 @import "tailwindcss";
 
+/* Class-based dark mode: toggled by adding `.dark` to <html> */
+@custom-variant dark (&:where(.dark, .dark *));
+
 @theme {
-  --color-primary: #071A2D; /* Midnight Navy */
-  --color-primary-dark: #030C14; /* Deep Navy */
-  --color-gold: #C8A45D; /* Wealth Gold */
-  --color-gold-light: #D4B576;
+  --color-primary: #1852CC;      /* Royal Blue — matches logo */
+  --color-primary-dark: #0D38A0; /* Deep Royal */
+  --color-primary-light: #3070E8;/* Light Royal */
+  --color-gold: #5EA6F8;         /* Sky Blue accent (replaces gold) */
+  --color-gold-light: #85BFF9;   /* Light sky accent */
 
   --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
   --font-heading: var(--font-playfair), ui-serif, Georgia, serif;
@@ -16,15 +20,29 @@
   --color-border: var(--border);
 }
 
+/* ─── Light theme ───────────────────────────────────────────────────────── */
 :root {
   --background: #ffffff;
-  --foreground: #1F2937; /* Charcoal */
-  --muted: #F8FAFC; /* Light Grey */
-  --muted-foreground: #6B7280;
-  --border: #E5E7EB;
+  --foreground: #0D1B3E;   /* Deep navy text */
+  --muted: #EEF3FF;        /* Blue-tinted light surface */
+  --muted-foreground: #5B7199;
+  --border: #C8D8F0;
 }
 
+/* ─── Dark theme ────────────────────────────────────────────────────────── */
+.dark {
+  --background: #06101E;
+  --foreground: #E0E8F4;
+  --muted: #0D1830;
+  --muted-foreground: #7A96C0;
+  --border: #1E3060;
+}
+
+:root { color-scheme: light; }
+.dark  { color-scheme: dark; }
+
 body {
+  transition: background-color 0.3s ease, color 0.3s ease;
   background-color: var(--color-background);
   color: var(--color-foreground);
   font-family: var(--font-sans);

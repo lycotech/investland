@@ -4,9 +4,10 @@ import WealthPillars from "@/components/WealthPillars";
 import WhyWealthFails from "@/components/WhyWealthFails";
 import SolutionsSection from "@/components/SolutionsSection";
 import InvestmentPhilosophy from "@/components/InvestmentPhilosophy";
-import BoardSection from "@/components/BoardSection";
+import WhyChooseUs from "@/components/WhyChooseUs";
 import WealthBlueprintSection from "@/components/WealthBlueprintSection";
 import InsightsSection from "@/components/InsightsSection";
+import OnboardingExpectations from "@/components/OnboardingExpectations";
 import ContactSection from "@/components/ContactSection";
 import Footer from "@/components/Footer";
 import JsonLd from "@/components/JsonLd";
@@ -77,14 +78,17 @@ export default function Home() {
         {/* Section 5: Investment Philosophy */}
         <InvestmentPhilosophy />
 
-        {/* Section 6: Leadership */}
-        <BoardSection />
+        {/* Section 6: Why Investors Choose Invest-Trust */}
+        <WhyChooseUs />
 
         {/* Section 7: Wealth Blueprint (Interactive) */}
         <WealthBlueprintSection />
 
         {/* Section 8: Market Insights */}
         <InsightsSection />
+
+        {/* Section 9: Onboarding Expectations */}
+        <OnboardingExpectations />
 
         {/* Contact & Footer */}
         <ContactSection />

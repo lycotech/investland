@@ -26,7 +26,7 @@ const STAGES = [
     number: '03',
     icon: TrendingUp,
     title: 'Grow',
-    tagline: 'Compound through disciplined investing.',
+    tagline: 'Grow capital through carefully selected opportunities.',
     details:
       'Deploy capital into carefully underwritten private credit, real assets and equity opportunities that generate risk-adjusted returns above inflation over time.',
   },
@@ -64,14 +64,14 @@ export default function WealthBlueprintSection() {
             transition={{ duration: 0.7 }}
             className="w-full lg:w-2/5 lg:sticky lg:top-28"
           >
-            <span className="text-gold font-semibold tracking-wider uppercase text-sm mb-3 block">
+            <span className="text-primary font-semibold tracking-wider uppercase text-sm mb-3 block">
               The ITAML Framework
             </span>
             <h2 className="text-3xl md:text-5xl font-bold text-foreground mb-6 leading-tight">
               Your Wealth Blueprint
             </h2>
             <p className="text-lg text-muted-foreground leading-relaxed mb-8">
-              A structured five-stage framework that guides every client from first investment through to generational legacy.
+              A five-stage framework that guides every client from first investment through to generational legacy.
             </p>
             <Link
               href="/wealth-blueprint"
@@ -96,7 +96,7 @@ export default function WealthBlueprintSection() {
                   className={`rounded-xl border transition-all duration-300 overflow-hidden ${
                     isOpen
                       ? 'bg-primary border-primary shadow-lg'
-                      : 'bg-background border-border/50 hover:border-gold/30'
+                      : 'bg-background border-border/50 hover:border-primary/30'
                   }`}
                 >
                   <button
@@ -106,16 +106,16 @@ export default function WealthBlueprintSection() {
                   >
                     <div
                       className={`w-11 h-11 rounded-xl flex items-center justify-center flex-shrink-0 transition-colors ${
-                        isOpen ? 'bg-gold/15' : 'bg-primary/5'
+                        isOpen ? 'bg-white/15' : 'bg-primary/5'
                       }`}
                     >
-                      <Icon size={20} className={isOpen ? 'text-gold' : 'text-primary'} />
+                      <Icon size={20} className={isOpen ? 'text-white' : 'text-primary'} />
                     </div>
                     <div className="flex-1 min-w-0">
                       <div className="flex items-center gap-3">
                         <span
                           className={`text-xs font-semibold ${
-                            isOpen ? 'text-gold/70' : 'text-muted-foreground'
+                            isOpen ? 'text-white/60' : 'text-muted-foreground'
                           }`}
                         >
                           {stage.number}

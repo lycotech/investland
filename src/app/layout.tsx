@@ -131,9 +131,16 @@ export default function RootLayout({
   return (
     <html
       lang="en"
+      suppressHydrationWarning
       className={`${inter.variable} ${playfairDisplay.variable} scroll-smooth antialiased`}
     >
       <body className="flex min-h-screen flex-col">
+        {/* Apply persisted theme before paint to avoid a flash. Default is light. */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `(function(){try{if(localStorage.getItem('theme')==='dark'){document.documentElement.classList.add('dark');}}catch(e){}})();`,
+          }}
+        />
         {children}
 
         {/* ─── Google Analytics (GA4) ─────────────────────────────────── */}

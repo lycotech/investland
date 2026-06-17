@@ -102,7 +102,7 @@ export default function FamilyOfficePage() {
               Who We Serve
             </span>
             <h2 className="text-3xl md:text-4xl font-bold text-foreground">
-              Built for Serious Capital
+              Built for Multi-Generational Wealth
             </h2>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">

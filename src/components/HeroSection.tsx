@@ -1,122 +1,198 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { ChevronRight, ShieldCheck, BarChart3, Landmark, Users } from 'lucide-react';
+import dynamic from 'next/dynamic';
+import { ChevronRight, ShieldCheck, BarChart3, Landmark, Users, ArrowRight } from 'lucide-react';
 
-const METRICS = [
-  { icon: ShieldCheck, label: 'SEC Licensed' },
-  { icon: BarChart3, label: 'Institutional Grade Research' },
-  { icon: Landmark, label: 'Private Market Access' },
-  { icon: Users, label: 'Retirement Solutions' },
+const HeroBackground = dynamic(() => import('./HeroBackground'), { ssr: false });
+
+const STATS = [
+  { icon: ShieldCheck, label: 'SEC Licensed', sub: 'Nigeria' },
+  { icon: BarChart3, label: 'Institutional Grade', sub: 'Research' },
+  { icon: Landmark, label: 'Private Market', sub: 'Access' },
+  { icon: Users, label: 'Retirement', sub: 'Solutions' },
 ];
 
 export default function HeroSection() {
   return (
-    <section className="relative min-h-screen flex items-center pt-20 overflow-hidden">
-      {/* Background Image — Lagos skyline / premium architectural imagery */}
-      <div
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-        style={{ backgroundImage: "url('/hero-bg.jpg')" }}
-      />
-      {/* Dark navy overlay — solid on left, lighter on right to let texture breathe */}
-      <div className="absolute inset-0 bg-gradient-to-r from-primary/97 via-primary/92 to-primary/70" />
-      {/* Subtle gold ambient blobs */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <motion.div
-          animate={{ y: [0, -30, 0], opacity: [0.08, 0.14, 0.08] }}
-          transition={{ repeat: Infinity, duration: 9, ease: 'easeInOut' }}
-          className="absolute -top-40 right-20 w-[30rem] h-[30rem] bg-gold/15 rounded-full blur-[130px]"
+    <section className="relative min-h-screen flex flex-col overflow-hidden">
+
+      {/* Base: royal blue gradient — covers everything on mobile, left half on desktop */}
+      <div className="absolute inset-0 bg-gradient-to-br from-[#0A2E8A] via-[#1852CC] to-[#2D6AE8]" />
+
+      {/* Right-half image blend — desktop only */}
+      <div className="absolute inset-y-0 right-0 w-[48%] hidden lg:block overflow-hidden">
+        {/* The photo — cropped to upper body (avoids desk/cash at bottom) */}
+        <img
+          src="/pexels-tima-miroshnichenko-6693658.jpg"
+          alt=""
+          aria-hidden="true"
+          className="w-full h-full object-cover object-[center_15%]"
         />
+        {/* Royal blue colour tint — ties image into the brand */}
+        <div className="absolute inset-0 bg-[#1852CC]/55" />
+        {/* Horizontal blend: left edge fades from solid blue into the tinted image */}
+        <div className="absolute inset-0 bg-gradient-to-r from-[#0A2E8A] via-[#0A2E8A]/65 to-transparent" />
+        {/* Bottom vignette — hides desk/cash if they peek in */}
+        <div className="absolute bottom-0 inset-x-0 h-40 bg-gradient-to-t from-[#0A2E8A]/80 to-transparent" />
+      </div>
+
+      {/* Geometric circle accents */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <div className="absolute -top-40 -right-40 w-[50rem] h-[50rem] rounded-full border border-white/6" />
+        <div className="absolute top-1/3 -left-32 w-[30rem] h-[30rem] rounded-full border border-white/5" />
+        {/* Left-side glow (mobile + desktop left) */}
         <motion.div
-          animate={{ y: [0, 30, 0], x: [0, -20, 0], opacity: [0.04, 0.09, 0.04] }}
-          transition={{ repeat: Infinity, duration: 14, ease: 'easeInOut' }}
-          className="absolute bottom-24 left-10 w-[22rem] h-[22rem] bg-gold/8 rounded-full blur-[100px]"
+          animate={{ opacity: [0.05, 0.12, 0.05] }}
+          transition={{ repeat: Infinity, duration: 10, ease: 'easeInOut' }}
+          className="absolute bottom-32 -left-10 w-[22rem] h-[22rem] bg-white/8 rounded-full blur-[100px]"
         />
       </div>
 
-      {/* Main Content */}
-      <div className="container relative z-10 mx-auto px-6 md:px-12">
-        <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-16">
+      {/* Three.js ambient globe — renders over the blend, reads as floating in right half */}
+      <HeroBackground />
 
-          {/* Left — Headline + Copy + CTAs */}
-          <div className="w-full lg:w-3/5 text-center lg:text-left">
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, ease: 'easeOut' }}
-            >
-              <div className="inline-flex items-center gap-2 bg-gold/10 border border-gold/25 text-gold text-xs font-semibold tracking-widest uppercase px-4 py-2 rounded-full mb-8">
-                SEC Licensed Asset Manager · Nigeria
+      {/* ── Main content ─────────────────────────────────────── */}
+      <div className="relative z-10 flex-1 flex items-center pt-24 pb-8">
+        <div className="container mx-auto px-6 md:px-12">
+          <div className="flex flex-col lg:flex-row items-center gap-14 lg:gap-20">
+
+            {/* Left — headline + copy + CTAs */}
+            <div className="w-full lg:w-3/5 text-center lg:text-left">
+
+              <motion.div
+                initial={{ opacity: 0, y: 24 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.7, ease: 'easeOut' }}
+              >
+                <div className="inline-flex items-center gap-2 bg-white/12 border border-white/20 text-white/90 text-xs font-semibold tracking-widest uppercase px-4 py-2 rounded-full mb-8">
+                  SEC Licensed Asset Manager · Nigeria
+                </div>
+
+                <h1 className="text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold text-white leading-[1.05] tracking-tight mb-6">
+                  Building Africa&apos;s <br className="hidden md:block" />
+                  <span className="text-blue-200">Wealth</span>{' '}
+                  Infrastructure
+                </h1>
+              </motion.div>
+
+              <motion.p
+                initial={{ opacity: 0, y: 24 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.7, delay: 0.18, ease: 'easeOut' }}
+                className="text-lg md:text-xl text-white/75 mb-10 max-w-xl leading-relaxed mx-auto lg:mx-0"
+              >
+                Helping individuals, families, businesses and institutions
+                preserve wealth, generate sustainable income and build lasting legacies.
+              </motion.p>
+
+              <motion.div
+                initial={{ opacity: 0, y: 24 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.7, delay: 0.34, ease: 'easeOut' }}
+                className="flex flex-col sm:flex-row items-center gap-4 justify-center lg:justify-start"
+              >
+                <a
+                  href="#contact"
+                  className="w-full sm:w-auto px-8 py-4 bg-white text-primary font-bold rounded-lg hover:bg-blue-50 transition-colors shadow-xl flex items-center justify-center gap-2 group"
+                >
+                  Start Your Wealth Journey
+                  <ChevronRight size={18} className="group-hover:translate-x-1 transition-transform" />
+                </a>
+                <a
+                  href="#contact"
+                  className="w-full sm:w-auto px-8 py-4 bg-white/10 border border-white/25 text-white font-semibold rounded-lg hover:bg-white/20 transition-colors flex items-center justify-center gap-2"
+                >
+                  Speak With An Advisor
+                </a>
+              </motion.div>
+            </div>
+
+            {/* Right — floating trust cards (desktop only) */}
+            <div className="hidden lg:flex w-full lg:w-2/5 flex-col gap-4">
+              {/* Large card */}
+              <motion.div
+                initial={{ opacity: 0, x: 40 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.8, delay: 0.3, ease: 'easeOut' }}
+                className="bg-white/10 backdrop-blur-md border border-white/15 rounded-2xl p-8"
+              >
+                <div className="flex items-center gap-3 mb-5">
+                  <div className="w-10 h-10 rounded-xl bg-white/15 flex items-center justify-center flex-shrink-0">
+                    <ShieldCheck size={20} className="text-white" />
+                  </div>
+                  <div>
+                    <p className="text-white font-bold text-sm">SEC Licensed</p>
+                    <p className="text-white/55 text-xs">Securities & Exchange Commission · Nigeria</p>
+                  </div>
+                </div>
+                <div className="h-px bg-white/10 mb-5" />
+                <p className="text-white/70 text-sm leading-relaxed">
+                  Regulated, transparent, and built to endure. Every client mandate is managed around preserving capital, generating income, and creating generational wealth.
+                </p>
+                <a href="#contact" className="mt-5 inline-flex items-center gap-2 text-blue-200 text-sm font-semibold hover:text-white transition-colors group">
+                  Begin your journey
+                  <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
+                </a>
+              </motion.div>
+
+              {/* Two small cards */}
+              <div className="grid grid-cols-2 gap-4">
+                {[
+                  { icon: BarChart3, label: 'Institutional Grade Research' },
+                  { icon: Landmark, label: 'Private Market Access' },
+                ].map((item, i) => {
+                  const Icon = item.icon;
+                  return (
+                    <motion.div
+                      key={item.label}
+                      initial={{ opacity: 0, y: 20 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.6, delay: 0.45 + i * 0.1, ease: 'easeOut' }}
+                      className="bg-white/8 backdrop-blur-md border border-white/12 rounded-2xl p-5 flex flex-col gap-3 hover:bg-white/14 transition-colors"
+                    >
+                      <div className="w-9 h-9 rounded-xl bg-white/15 flex items-center justify-center">
+                        <Icon size={18} className="text-white" />
+                      </div>
+                      <p className="text-white/85 font-semibold text-xs leading-snug">{item.label}</p>
+                    </motion.div>
+                  );
+                })}
               </div>
-              <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-white leading-tight tracking-tight mb-6">
-                Building Africa&apos;s <br className="hidden md:block" />
-                <span className="text-gold">Wealth</span>{' '}
-                Infrastructure
-              </h1>
-            </motion.div>
+            </div>
 
-            <motion.p
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.2, ease: 'easeOut' }}
-              className="text-lg md:text-xl text-white/70 mb-10 max-w-xl leading-relaxed mx-auto lg:mx-0"
-            >
-              Helping individuals, families, businesses and institutions preserve
-              wealth, generate sustainable income and build lasting legacies.
-            </motion.p>
-
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.4, ease: 'easeOut' }}
-              className="flex flex-col sm:flex-row items-center gap-4 justify-center lg:justify-start"
-            >
-              <a
-                href="#contact"
-                className="w-full sm:w-auto px-8 py-4 bg-gold text-primary font-semibold rounded-md hover:bg-gold-light transition-colors shadow-lg flex items-center justify-center gap-2 group"
-              >
-                Start Your Wealth Journey
-                <ChevronRight size={18} className="group-hover:translate-x-1 transition-transform" />
-              </a>
-              <a
-                href="#contact"
-                className="w-full sm:w-auto px-8 py-4 bg-white/8 border border-white/20 text-white font-medium rounded-md hover:bg-white/15 transition-colors flex items-center justify-center"
-              >
-                Speak With An Advisor
-              </a>
-            </motion.div>
           </div>
+        </div>
+      </div>
 
-          {/* Right — Floating Metrics (desktop only) */}
-          <div className="hidden lg:grid w-full lg:w-2/5 grid-cols-2 gap-4">
-            {METRICS.map((metric, index) => {
-              const Icon = metric.icon;
+      {/* ── Bottom stats strip ─────────────────────────────────── */}
+      <div className="relative z-10 border-t border-white/10 bg-black/15 backdrop-blur-sm">
+        <div className="container mx-auto px-6 md:px-12">
+          <div className="grid grid-cols-2 md:grid-cols-4">
+            {STATS.map((stat, i) => {
+              const Icon = stat.icon;
               return (
                 <motion.div
-                  key={metric.label}
-                  initial={{ opacity: 0, y: 40 }}
+                  key={stat.label}
+                  initial={{ opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.7, delay: 0.35 + index * 0.12, ease: 'easeOut' }}
-                  className={`bg-white/8 backdrop-blur-md border border-white/12 rounded-2xl p-6 flex flex-col gap-4 hover:bg-white/12 transition-colors${
-                    index % 2 === 1 ? ' mt-8' : ''
-                  }`}
+                  transition={{ duration: 0.5, delay: 0.55 + i * 0.08 }}
+                  className="flex items-center gap-3 py-5 px-4 first:pl-0 border-r border-white/8 last:border-0"
                 >
-                  <div className="w-11 h-11 rounded-xl bg-gold/15 flex items-center justify-center">
-                    <Icon size={22} className="text-gold" />
+                  <Icon size={18} className="text-blue-200 flex-shrink-0" />
+                  <div>
+                    <p className="text-white font-semibold text-sm leading-none">{stat.label}</p>
+                    <p className="text-white/50 text-xs mt-0.5">{stat.sub}</p>
                   </div>
-                  <p className="text-white font-semibold text-sm leading-snug">
-                    {metric.label}
-                  </p>
                 </motion.div>
               );
             })}
           </div>
-
         </div>
       </div>
 
-      {/* Bottom fade into next section */}
-      <div className="absolute bottom-0 left-0 w-full h-28 bg-gradient-to-t from-background to-transparent z-10" />
+      {/* Fade into next section */}
+      <div className="absolute bottom-0 left-0 w-full h-20 bg-gradient-to-t from-background to-transparent z-10 pointer-events-none" />
     </section>
   );
 }

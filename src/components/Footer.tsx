@@ -36,7 +36,7 @@ export default function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="bg-primary text-white pt-20 pb-8">
+    <footer className="bg-primary-dark text-white pt-20 pb-8">
       <div className="container mx-auto px-6 md:px-12">
 
         {/* Top: Brand + Regulatory */}
@@ -51,16 +51,15 @@ export default function Footer() {
                 className="h-10 w-auto object-contain brightness-0 invert"
               />
             </a>
-            <p className="text-white/55 leading-relaxed text-sm mb-8">
-              Building Africa&apos;s wealth infrastructure through disciplined capital management, institutional-grade research and purpose-built investment solutions.
+            <p className="text-white/50 leading-relaxed text-sm mb-8">
+              Building Africa&apos;s wealth infrastructure through rigorous capital management and purpose-built investment solutions.
             </p>
-            {/* Social */}
             <div className="flex gap-4">
               {SOCIAL_LINKS.map((s) => (
                 <a
                   key={s.label}
                   href={s.href}
-                  className="text-xs font-semibold text-white/50 hover:text-gold transition-colors uppercase tracking-wider"
+                  className="text-xs font-semibold text-white/45 hover:text-white transition-colors uppercase tracking-wider"
                 >
                   {s.label}
                 </a>
@@ -80,18 +79,14 @@ export default function Footer() {
                 key={badge.label}
                 className={`rounded-xl p-5 border ${
                   badge.accent
-                    ? 'bg-gold/10 border-gold/30'
+                    ? 'bg-white/10 border-white/25'
                     : 'bg-white/4 border-white/8'
                 }`}
               >
-                <p
-                  className={`text-sm font-bold mb-1 ${
-                    badge.accent ? 'text-gold' : 'text-white/80'
-                  }`}
-                >
+                <p className="text-sm font-bold mb-1 text-white/85">
                   {badge.label}
                 </p>
-                <p className="text-xs text-white/45 leading-snug">{badge.sub}</p>
+                <p className="text-xs text-white/40 leading-snug">{badge.sub}</p>
               </div>
             ))}
           </div>
@@ -100,11 +95,11 @@ export default function Footer() {
         {/* Links */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mb-16">
           <div>
-            <h4 className="font-semibold text-sm mb-6 text-white/80 uppercase tracking-wider">Solutions</h4>
+            <h4 className="font-semibold text-sm mb-6 text-white/70 uppercase tracking-wider">Solutions</h4>
             <ul className="space-y-3">
               {SOLUTIONS_LINKS.map((l) => (
                 <li key={l.label}>
-                  <Link href={l.href} className="text-sm text-white/50 hover:text-gold transition-colors">
+                  <Link href={l.href} className="text-sm text-white/45 hover:text-white transition-colors">
                     {l.label}
                   </Link>
                 </li>
@@ -112,11 +107,11 @@ export default function Footer() {
             </ul>
           </div>
           <div>
-            <h4 className="font-semibold text-sm mb-6 text-white/80 uppercase tracking-wider">Company</h4>
+            <h4 className="font-semibold text-sm mb-6 text-white/70 uppercase tracking-wider">Company</h4>
             <ul className="space-y-3">
               {COMPANY_LINKS.map((l) => (
                 <li key={l.label}>
-                  <Link href={l.href} className="text-sm text-white/50 hover:text-gold transition-colors">
+                  <Link href={l.href} className="text-sm text-white/45 hover:text-white transition-colors">
                     {l.label}
                   </Link>
                 </li>
@@ -124,11 +119,11 @@ export default function Footer() {
             </ul>
           </div>
           <div>
-            <h4 className="font-semibold text-sm mb-6 text-white/80 uppercase tracking-wider">Legal</h4>
+            <h4 className="font-semibold text-sm mb-6 text-white/70 uppercase tracking-wider">Legal</h4>
             <ul className="space-y-3">
               {LEGAL_LINKS.map((l) => (
                 <li key={l.label}>
-                  <Link href={l.href} className="text-sm text-white/50 hover:text-gold transition-colors">
+                  <Link href={l.href} className="text-sm text-white/45 hover:text-white transition-colors">
                     {l.label}
                   </Link>
                 </li>
@@ -139,15 +134,15 @@ export default function Footer() {
 
         {/* Disclaimer & Copyright */}
         <div className="border-t border-white/10 pt-8 space-y-4">
-          <p className="text-xs text-white/35 max-w-4xl leading-relaxed">
-            <strong className="text-white/50">Disclaimer:</strong> Investments are subject to market risks. Read all scheme-related documents carefully before investing. Past performance is not indicative of future returns. Invest-Trust Asset Management Limited is licensed and regulated by the Securities and Exchange Commission (SEC) of Nigeria. The information on this website is for informational purposes only and does not constitute financial, legal or tax advice.
+          <p className="text-xs text-white/30 max-w-4xl leading-relaxed">
+            <strong className="text-white/45">Disclaimer:</strong> Investments are subject to market risks. Read all scheme-related documents carefully before investing. Past performance is not indicative of future returns. Invest-Trust Asset Management Limited is licensed and regulated by the Securities and Exchange Commission (SEC) of Nigeria. The information on this website is for informational purposes only and does not constitute financial, legal or tax advice.
           </p>
-          <p className="text-xs text-white/35 max-w-4xl leading-relaxed">
-            <strong className="text-white/50">Note:</strong> Typical mandates start from ₦10,000,000 and above. We work exclusively with clients deploying serious, long-term capital.
+          <p className="text-xs text-white/30 max-w-4xl leading-relaxed">
+            <strong className="text-white/45">Note:</strong> Typical mandates start from ₦10,000,000. We work with clients who are committed to building and preserving meaningful wealth.
           </p>
-          <p className="text-sm text-white/40 pt-2">
+          <p className="text-sm text-white/35 pt-2">
             &copy; {currentYear} Invest-Trust Asset Management Limited. All rights reserved.&nbsp;&nbsp;|&nbsp;&nbsp;
-            <a href="https://investtrustasset.com" className="hover:text-gold transition-colors">investtrustasset.com</a>
+            <a href="https://investtrustasset.com" className="hover:text-white transition-colors">investtrustasset.com</a>
           </p>
         </div>
 
