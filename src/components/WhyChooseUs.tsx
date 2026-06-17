@@ -1,7 +1,8 @@
 'use client';
 
-import { motion } from 'framer-motion';
+import { useEffect, useRef } from 'react';
 import { Layers, ShieldCheck, Lock, BarChart2, FileSearch, ExternalLink } from 'lucide-react';
+import { gsap, ScrollTrigger } from '@/lib/gsap';
 
 const DIFFERENTIATORS = [
   {
@@ -43,66 +44,129 @@ const DIFFERENTIATORS = [
 ];
 
 export default function WhyChooseUs() {
+  const sectionRef = useRef<HTMLElement>(null);
+
+  useEffect(() => {
+    const ctx = gsap.context(() => {
+      /* ── Header ── */
+      gsap.from('.why-header', {
+        opacity: 0,
+        y: 28,
+        duration: 0.75,
+        ease: 'power3.out',
+        scrollTrigger: {
+          trigger: '.why-header',
+          start: 'top 82%',
+        },
+      });
+
+      /* ── Items: alternate slide from left / right per column ── */
+      gsap.from('.why-item-left', {
+        opacity: 0,
+        x: -45,
+        stagger: 0.13,
+        duration: 0.7,
+        ease: 'power3.out',
+        scrollTrigger: {
+          trigger: '.why-item-left',
+          start: 'top 85%',
+        },
+      });
+
+      gsap.from('.why-item-right', {
+        opacity: 0,
+        x: 45,
+        stagger: 0.13,
+        duration: 0.7,
+        ease: 'power3.out',
+        scrollTrigger: {
+          trigger: '.why-item-right',
+          start: 'top 85%',
+        },
+      });
+
+      /* ── Number badges: scale pop ── */
+      gsap.from('.why-number', {
+        scale: 0,
+        duration: 0.4,
+        stagger: 0.1,
+        ease: 'back.out(2)',
+        delay: 0.35,
+        scrollTrigger: {
+          trigger: '.why-item-left',
+          start: 'top 85%',
+        },
+      });
+
+      /* ── Icon containers: scale pop ── */
+      gsap.from('.why-icon', {
+        scale: 0,
+        rotation: -15,
+        duration: 0.45,
+        stagger: 0.1,
+        ease: 'back.out(1.8)',
+        delay: 0.2,
+        scrollTrigger: {
+          trigger: '.why-item-left',
+          start: 'top 85%',
+        },
+      });
+    }, sectionRef);
+
+    return () => ctx.revert();
+  }, []);
+
   return (
-    <section className="py-24 bg-background">
+    <section ref={sectionRef} className="py-24 bg-background">
       <div className="container mx-auto px-6 md:px-12">
 
         {/* Header */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.7 }}
-          className="max-w-2xl mb-16"
-        >
+        <div className="why-header max-w-2xl mb-16">
           <span className="text-primary font-semibold tracking-wider uppercase text-sm mb-3 block">
             Why Invest-Trust
           </span>
           <h2 className="text-3xl md:text-5xl font-bold text-foreground leading-tight">
             Why Investors Choose Invest-Trust
           </h2>
-        </motion.div>
+        </div>
 
         {/* Differentiators */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-0">
           {DIFFERENTIATORS.map((item, index) => {
             const Icon = item.icon;
+            const isRight = index % 2 === 1;
             return (
-              <motion.div
+              <div
                 key={item.number}
-                initial={{ opacity: 0, y: 24 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="flex gap-6 py-8 border-b border-border/50 last:border-0"
+                className={`${isRight ? 'why-item-right' : 'why-item-left'} flex gap-6 py-8 border-b border-border/50 last:border-0`}
               >
-                {/* Icon column */}
+                {/* Icon */}
                 <div className="flex-shrink-0">
-                  <div className="w-12 h-12 rounded-xl bg-primary/8 flex items-center justify-center">
+                  <div className="why-icon w-12 h-12 rounded-xl bg-primary/8 flex items-center justify-center">
                     <Icon size={22} className="text-primary" />
                   </div>
                 </div>
 
-                {/* Content column */}
+                {/* Content */}
                 <div>
                   <div className="flex items-center gap-2 mb-2">
-                    <span className="text-xs font-bold text-primary/40 tracking-widest">{item.number}</span>
+                    <span className="why-number text-xs font-bold text-primary/40 tracking-widest">{item.number}</span>
                     <h3 className="text-lg font-bold text-foreground">{item.title}</h3>
                   </div>
                   <p className="text-muted-foreground text-sm leading-relaxed">{item.description}</p>
-                {'verifyHref' in item && item.verifyHref && (
-                  <a
-                    href={item.verifyHref as string}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="mt-2 inline-flex items-center gap-1 text-xs text-primary font-semibold hover:underline"
-                  >
-                    Verify on SEC.gov.ng
-                    <ExternalLink size={11} />
-                  </a>
-                )}
+                  {'verifyHref' in item && item.verifyHref && (
+                    <a
+                      href={item.verifyHref as string}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="mt-2 inline-flex items-center gap-1 text-xs text-primary font-semibold hover:underline"
+                    >
+                      Verify on SEC.gov.ng
+                      <ExternalLink size={11} />
+                    </a>
+                  )}
                 </div>
-              </motion.div>
+              </div>
             );
           })}
         </div>

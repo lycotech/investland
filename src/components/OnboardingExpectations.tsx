@@ -1,13 +1,16 @@
 'use client';
 
-import { motion } from 'framer-motion';
+import { useEffect, useRef } from 'react';
 import { Wallet, FileText, Landmark, LogOut, ReceiptText } from 'lucide-react';
+import { gsap, ScrollTrigger } from '@/lib/gsap';
 
 const ITEMS = [
   {
     icon: Wallet,
     label: 'Minimum Investment',
     value: '₦10,000,000',
+    isCounter: true,
+    counterTarget: 10000000,
     detail:
       'Applicable across individual, corporate and family mandates. Institutional mandates are structured on a case-by-case basis depending on the nature of the deployment.',
   },
@@ -42,18 +45,68 @@ const ITEMS = [
 ];
 
 export default function OnboardingExpectations() {
+  const sectionRef = useRef<HTMLDivElement>(null);
+  const counterRef = useRef<HTMLParagraphElement>(null);
+
+  useEffect(() => {
+    const ctx = gsap.context(() => {
+      /* ── Header ── */
+      gsap.from('.onboard-header', {
+        opacity: 0,
+        y: 28,
+        duration: 0.8,
+        ease: 'power3.out',
+        scrollTrigger: {
+          trigger: '.onboard-header',
+          start: 'top 82%',
+        },
+      });
+
+      /* ── Cards: fan-in stagger ── */
+      gsap.from('.onboard-card', {
+        opacity: 0,
+        y: 40,
+        scale: 0.93,
+        stagger: 0.1,
+        duration: 0.65,
+        ease: 'back.out(1.4)',
+        scrollTrigger: {
+          trigger: '.onboard-card',
+          start: 'top 85%',
+        },
+      });
+
+      /* ── Count-up on ₦10M card ── */
+      const counter = { val: 0 };
+      ScrollTrigger.create({
+        trigger: counterRef.current,
+        start: 'top 88%',
+        once: true,
+        onEnter: () => {
+          gsap.to(counter, {
+            val: 10000000,
+            duration: 1.8,
+            ease: 'power2.out',
+            onUpdate: () => {
+              if (counterRef.current) {
+                counterRef.current.textContent =
+                  '₦' + Math.floor(counter.val).toLocaleString('en-NG');
+              }
+            },
+          });
+        },
+      });
+    }, sectionRef);
+
+    return () => ctx.revert();
+  }, []);
+
   return (
     <section className="py-24 bg-muted/40">
-      <div className="container mx-auto px-6 md:px-12">
+      <div ref={sectionRef} className="container mx-auto px-6 md:px-12">
 
         {/* Header */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.7 }}
-          className="text-center max-w-2xl mx-auto mb-16"
-        >
+        <div className="onboard-header text-center max-w-2xl mx-auto mb-16">
           <span className="text-primary font-semibold tracking-wider uppercase text-sm mb-3 block">
             Getting Started
           </span>
@@ -63,7 +116,7 @@ export default function OnboardingExpectations() {
           <p className="text-muted-foreground leading-relaxed">
             We believe clients should know the terms before the first conversation. Here is what a typical mandate looks like.
           </p>
-        </motion.div>
+        </div>
 
         {/* Spec grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
@@ -71,13 +124,9 @@ export default function OnboardingExpectations() {
             const Icon = item.icon;
             const isLast = index === ITEMS.length - 1;
             return (
-              <motion.div
+              <div
                 key={item.label}
-                initial={{ opacity: 0, y: 24 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: index * 0.09 }}
-                className={`bg-background rounded-2xl p-7 border border-border/50 shadow-sm flex flex-col gap-3 ${
+                className={`onboard-card bg-background rounded-2xl p-7 border border-border/50 shadow-sm flex flex-col gap-3 ${
                   isLast ? 'md:col-span-2 lg:col-span-1' : ''
                 }`}
               >
@@ -88,10 +137,16 @@ export default function OnboardingExpectations() {
                   <p className="text-xs font-semibold text-muted-foreground uppercase tracking-wider mb-1">
                     {item.label}
                   </p>
-                  <p className="text-xl font-bold text-primary">{item.value}</p>
+                  {item.isCounter ? (
+                    <p ref={counterRef} className="text-xl font-bold text-primary">
+                      {item.value}
+                    </p>
+                  ) : (
+                    <p className="text-xl font-bold text-primary">{item.value}</p>
+                  )}
                 </div>
                 <p className="text-sm text-muted-foreground leading-relaxed">{item.detail}</p>
-              </motion.div>
+              </div>
             );
           })}
         </div>
