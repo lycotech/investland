@@ -66,6 +66,17 @@ export default function Home() {
         {/* Section 1: Hero */}
         <HeroSection />
 
+        {/* Mandate minimum — visible immediately after the hero */}
+        <div className="bg-foreground text-white py-4">
+          <div className="container mx-auto px-6 md:px-12 flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-5 text-center">
+            <span className="text-white/55 text-xs font-semibold tracking-widest uppercase">Minimum Portfolio Mandate</span>
+            <span className="hidden sm:block text-white/20 text-sm">|</span>
+            <span className="text-white font-bold text-xl tracking-tight">₦10,000,000</span>
+            <span className="hidden sm:block text-white/20 text-sm">|</span>
+            <span className="text-white/50 text-xs tracking-wide">Individuals &nbsp;·&nbsp; Families &nbsp;·&nbsp; Institutions</span>
+          </div>
+        </div>
+
         {/* Section 2: Wealth Is More Than Investment Returns */}
         <WealthPillars />
 
