@@ -88,23 +88,21 @@ export default function AboutPage() {
         <div className="container mx-auto px-6 md:px-12">
           <div className="flex flex-col lg:flex-row gap-16 items-start">
 
-            {/* Portrait placeholder */}
+            {/* MD Portrait */}
             <div className="w-full lg:w-2/5">
-              <div className="relative bg-primary/5 rounded-3xl overflow-hidden aspect-[4/5] flex items-end">
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <div className="w-32 h-32 rounded-full bg-primary/10 border-2 border-primary/15 flex items-center justify-center">
-                    <span className="text-4xl font-bold text-primary/25">MD</span>
-                  </div>
-                </div>
-                <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-gold/60 to-gold/20" />
-                <div className="relative z-10 p-8 bg-gradient-to-t from-primary/80 to-transparent w-full">
+              <div className="relative rounded-3xl overflow-hidden aspect-[4/5]">
+                <img
+                  src="/md.jpeg"
+                  alt="Managing Director — Invest-Trust Asset Management Limited"
+                  className="w-full h-full object-cover object-top"
+                />
+                {/* Gradient caption bar */}
+                <div className="absolute inset-0 bg-gradient-to-t from-primary/85 via-primary/10 to-transparent" />
+                <div className="absolute bottom-0 left-0 right-0 p-8">
                   <p className="text-white font-bold text-lg">Managing Director</p>
-                  <p className="text-gold text-sm font-medium">Invest-Trust Asset Management Limited</p>
+                  <p className="text-blue-200 text-sm font-medium">Invest-Trust Asset Management Limited</p>
                 </div>
               </div>
-              <p className="text-xs text-muted-foreground text-center mt-3 italic">
-                Full portrait and profile to be published shortly.
-              </p>
             </div>
 
             {/* Opening narrative */}
