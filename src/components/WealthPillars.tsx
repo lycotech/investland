@@ -39,35 +39,24 @@ export default function WealthPillars() {
         duration: 0.8,
         ease: 'power3.out',
         scrollTrigger: {
-          trigger: '.pillars-header',
-          start: 'top 82%',
+          trigger: sectionRef.current,
+          start: 'top 72%',
+          once: true,
         },
       });
 
-      /* ── Cards: stagger with elastic bounce ── */
+      /* ── All 4 cards trigger together from the section, not per-card ── */
       gsap.from('.pillar-card', {
         opacity: 0,
         y: 55,
         scale: 0.9,
-        stagger: 0.12,
+        stagger: { each: 0.12, from: 'start' },
         duration: 0.75,
         ease: 'back.out(1.6)',
         scrollTrigger: {
-          trigger: '.pillar-card',
-          start: 'top 85%',
-        },
-      });
-
-      /* ── Icon containers: pop in after card ── */
-      gsap.from('.pillar-icon', {
-        scale: 0,
-        duration: 0.45,
-        stagger: 0.12,
-        ease: 'back.out(2)',
-        delay: 0.3,
-        scrollTrigger: {
-          trigger: '.pillar-card',
-          start: 'top 85%',
+          trigger: sectionRef.current,
+          start: 'top 65%',
+          once: true,
         },
       });
     }, sectionRef);

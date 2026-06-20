@@ -57,22 +57,24 @@ export default function OnboardingExpectations() {
         duration: 0.8,
         ease: 'power3.out',
         scrollTrigger: {
-          trigger: '.onboard-header',
-          start: 'top 82%',
+          trigger: sectionRef.current,
+          start: 'top 75%',
+          once: true,
         },
       });
 
-      /* ── Cards: fan-in stagger ── */
+      /* ── Cards: fan-in stagger, all triggered from section top ── */
       gsap.from('.onboard-card', {
         opacity: 0,
         y: 40,
         scale: 0.93,
-        stagger: 0.1,
+        stagger: { each: 0.1, from: 'start' },
         duration: 0.65,
         ease: 'back.out(1.4)',
         scrollTrigger: {
-          trigger: '.onboard-card',
-          start: 'top 85%',
+          trigger: sectionRef.current,
+          start: 'top 65%',
+          once: true,
         },
       });
 

@@ -55,8 +55,9 @@ export default function WhyChooseUs() {
         duration: 0.75,
         ease: 'power3.out',
         scrollTrigger: {
-          trigger: '.why-header',
-          start: 'top 82%',
+          trigger: sectionRef.current,
+          start: 'top 75%',
+          once: true,
         },
       });
 
@@ -64,37 +65,26 @@ export default function WhyChooseUs() {
       gsap.from('.why-item-left', {
         opacity: 0,
         x: -45,
-        stagger: 0.13,
+        stagger: { each: 0.13, from: 'start' },
         duration: 0.7,
         ease: 'power3.out',
         scrollTrigger: {
-          trigger: '.why-item-left',
-          start: 'top 85%',
+          trigger: sectionRef.current,
+          start: 'top 68%',
+          once: true,
         },
       });
 
       gsap.from('.why-item-right', {
         opacity: 0,
         x: 45,
-        stagger: 0.13,
+        stagger: { each: 0.13, from: 'start' },
         duration: 0.7,
         ease: 'power3.out',
         scrollTrigger: {
-          trigger: '.why-item-right',
-          start: 'top 85%',
-        },
-      });
-
-      /* ── Number badges: scale pop ── */
-      gsap.from('.why-number', {
-        scale: 0,
-        duration: 0.4,
-        stagger: 0.1,
-        ease: 'back.out(2)',
-        delay: 0.35,
-        scrollTrigger: {
-          trigger: '.why-item-left',
-          start: 'top 85%',
+          trigger: sectionRef.current,
+          start: 'top 68%',
+          once: true,
         },
       });
 
@@ -103,12 +93,13 @@ export default function WhyChooseUs() {
         scale: 0,
         rotation: -15,
         duration: 0.45,
-        stagger: 0.1,
+        stagger: { each: 0.1, from: 'start' },
         ease: 'back.out(1.8)',
         delay: 0.2,
         scrollTrigger: {
-          trigger: '.why-item-left',
-          start: 'top 85%',
+          trigger: sectionRef.current,
+          start: 'top 68%',
+          once: true,
         },
       });
     }, sectionRef);
