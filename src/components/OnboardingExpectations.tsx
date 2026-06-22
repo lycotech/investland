@@ -1,19 +1,10 @@
 'use client';
 
 import { useEffect, useRef } from 'react';
-import { Wallet, FileText, Landmark, LogOut, ReceiptText } from 'lucide-react';
-import { gsap, ScrollTrigger } from '@/lib/gsap';
+import { FileText, Landmark, LogOut, ReceiptText } from 'lucide-react';
+import { gsap } from '@/lib/gsap';
 
 const ITEMS = [
-  {
-    icon: Wallet,
-    label: 'Minimum Investment',
-    value: '₦10,000,000',
-    isCounter: true,
-    counterTarget: 10000000,
-    detail:
-      'Applicable across individual, corporate and family mandates. Institutional mandates are structured on a case-by-case basis depending on the nature of the deployment.',
-  },
   {
     icon: FileText,
     label: 'Reporting Frequency',
@@ -46,11 +37,9 @@ const ITEMS = [
 
 export default function OnboardingExpectations() {
   const sectionRef = useRef<HTMLDivElement>(null);
-  const counterRef = useRef<HTMLParagraphElement>(null);
 
   useEffect(() => {
     const ctx = gsap.context(() => {
-      /* ── Header ── */
       gsap.from('.onboard-header', {
         opacity: 0,
         y: 28,
@@ -63,39 +52,18 @@ export default function OnboardingExpectations() {
         },
       });
 
-      /* ── Cards: fan-in stagger, all triggered from section top ── */
       gsap.from('.onboard-card', {
-        opacity: 0,
+        autoAlpha: 0,
         y: 40,
         scale: 0.93,
         stagger: { each: 0.1, from: 'start' },
         duration: 0.65,
         ease: 'back.out(1.4)',
+        clearProps: 'all',
         scrollTrigger: {
           trigger: sectionRef.current,
           start: 'top 65%',
           once: true,
-        },
-      });
-
-      /* ── Count-up on ₦10M card ── */
-      const counter = { val: 0 };
-      ScrollTrigger.create({
-        trigger: counterRef.current,
-        start: 'top 88%',
-        once: true,
-        onEnter: () => {
-          gsap.to(counter, {
-            val: 10000000,
-            duration: 1.8,
-            ease: 'power2.out',
-            onUpdate: () => {
-              if (counterRef.current) {
-                counterRef.current.textContent =
-                  '₦' + Math.floor(counter.val).toLocaleString('en-NG');
-              }
-            },
-          });
         },
       });
     }, sectionRef);
@@ -120,17 +88,14 @@ export default function OnboardingExpectations() {
           </p>
         </div>
 
-        {/* Spec grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
-          {ITEMS.map((item, index) => {
+        {/* 4 cards in a single row */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          {ITEMS.map((item) => {
             const Icon = item.icon;
-            const isLast = index === ITEMS.length - 1;
             return (
               <div
                 key={item.label}
-                className={`onboard-card bg-background rounded-2xl p-7 border border-border/50 shadow-sm flex flex-col gap-3 ${
-                  isLast ? 'md:col-span-2 lg:col-span-1' : ''
-                }`}
+                className="onboard-card bg-background rounded-2xl p-7 border border-border/50 shadow-sm flex flex-col gap-3"
               >
                 <div className="w-10 h-10 rounded-xl bg-primary/8 flex items-center justify-center">
                   <Icon size={20} className="text-primary" />
@@ -139,13 +104,7 @@ export default function OnboardingExpectations() {
                   <p className="text-xs font-semibold text-muted-foreground uppercase tracking-wider mb-1">
                     {item.label}
                   </p>
-                  {item.isCounter ? (
-                    <p ref={counterRef} className="text-xl font-bold text-primary">
-                      {item.value}
-                    </p>
-                  ) : (
-                    <p className="text-xl font-bold text-primary">{item.value}</p>
-                  )}
+                  <p className="text-xl font-bold text-primary">{item.value}</p>
                 </div>
                 <p className="text-sm text-muted-foreground leading-relaxed">{item.detail}</p>
               </div>

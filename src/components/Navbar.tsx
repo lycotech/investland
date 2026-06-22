@@ -6,27 +6,32 @@ import { Menu, X, ChevronDown } from 'lucide-react';
 import Link from 'next/link';
 import ThemeToggle from './ThemeToggle';
 
-const SOLUTIONS_DROPDOWN = [
-  { label: 'Retirement Income Solutions', href: '/retirement' },
-  { label: 'Private Credit Investments', href: '/private-credit' },
-  { label: 'Real Asset Opportunities', href: '/real-assets' },
-  { label: 'Family Office Services', href: '/family-office' },
-  { label: 'Corporate Treasury', href: '/#contact' },
-  { label: 'Diaspora Wealth', href: '/#contact' },
+const PRODUCTS_DROPDOWN = [
+  { label: 'Portfolio Management', desc: 'Discretionary and managed portfolios aligned to income, growth, liquidity and risk objectives.', href: '/portfolio-management' },
+  { label: 'Fixed Income Strategies', desc: 'Treasury bills, FGN/corporate bonds, commercial papers and bank placements for defined income.', href: '/fixed-income' },
+  { label: 'Retirement Income Solutions', desc: 'Accumulation, growth, income and legacy framework for long-term retirement cashflow.', href: '/retirement' },
+  { label: 'Private Credit Investments', desc: 'Invoice financing, revenue-based financing, asset-backed lending, structured credit and SME growth capital.', href: '/private-credit' },
+  { label: 'Real Asset Opportunities', desc: 'Commercial real estate, logistics, hospitality, infrastructure, energy and student housing opportunities.', href: '/real-assets' },
+  { label: 'Corporate Treasury Management', desc: 'Structured deployment of surplus corporate liquidity with governance, reporting and risk oversight.', href: '/corporate-treasury' },
+  { label: 'Diaspora Wealth Solutions', desc: 'Secure access to Nigerian investment opportunities with transparent reporting and advisory support.', href: '/diaspora-wealth' },
+  { label: 'Family Office Services', desc: 'Portfolio construction, estate-planning coordination, succession structuring and family governance advisory.', href: '/family-office' },
 ];
 
-const NAV_LINKS = [
-  { label: 'Philosophy', href: '/#philosophy' },
-  { label: 'Blueprint', href: '/wealth-blueprint' },
+const NAV_LINKS_BEFORE = [
+  { label: 'Home', href: '/' },
   { label: 'About', href: '/about' },
+];
+
+const NAV_LINKS_AFTER = [
+  { label: 'Blueprint', href: '/wealth-blueprint' },
   { label: 'Insights', href: '/#insights' },
 ];
 
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [solutionsOpen, setSolutionsOpen] = useState(false);
-  const [mobileSolutionsOpen, setMobileSolutionsOpen] = useState(false);
+  const [productsOpen, setProductsOpen] = useState(false);
+  const [mobileProductsOpen, setMobileProductsOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => setIsScrolled(window.scrollY > 20);
@@ -64,39 +69,46 @@ export default function Navbar() {
         {/* Desktop Nav */}
         <nav className="hidden md:flex items-center gap-7">
 
-          {/* Solutions dropdown */}
+          {NAV_LINKS_BEFORE.map((link) => (
+            <Link key={link.label} href={link.href} className={linkClass}>
+              {link.label}
+            </Link>
+          ))}
+
+          {/* Products dropdown */}
           <div
             className="relative"
-            onMouseEnter={() => setSolutionsOpen(true)}
-            onMouseLeave={() => setSolutionsOpen(false)}
+            onMouseEnter={() => setProductsOpen(true)}
+            onMouseLeave={() => setProductsOpen(false)}
           >
             <button
               type="button"
               className={`${linkClass} flex items-center gap-1`}
             >
-              Solutions
+              Products
               <ChevronDown
                 size={14}
-                className={`transition-transform duration-200 ${solutionsOpen ? 'rotate-180' : ''}`}
+                className={`transition-transform duration-200 ${productsOpen ? 'rotate-180' : ''}`}
               />
             </button>
 
             <AnimatePresence>
-              {solutionsOpen && (
+              {productsOpen && (
                 <motion.div
                   initial={{ opacity: 0, y: 8 }}
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: 8 }}
                   transition={{ duration: 0.15 }}
-                  className="absolute top-full left-0 mt-2 w-64 bg-background rounded-xl shadow-2xl border border-border/50 py-2 overflow-hidden"
+                  className="absolute top-full left-0 mt-2 w-[560px] bg-background rounded-xl shadow-2xl border border-border/50 py-3 overflow-hidden grid grid-cols-2"
                 >
-                  {SOLUTIONS_DROPDOWN.map((item) => (
+                  {PRODUCTS_DROPDOWN.map((item) => (
                     <Link
                       key={item.label}
                       href={item.href}
-                      className="block px-5 py-3 text-sm text-foreground/80 hover:text-primary hover:bg-muted/60 transition-colors"
+                      className="px-5 py-3 hover:bg-muted/60 transition-colors group"
                     >
-                      {item.label}
+                      <p className="text-sm font-semibold text-foreground/85 group-hover:text-primary transition-colors leading-snug">{item.label}</p>
+                      <p className="text-xs text-muted-foreground mt-0.5 leading-snug">{item.desc}</p>
                     </Link>
                   ))}
                 </motion.div>
@@ -104,7 +116,7 @@ export default function Navbar() {
             </AnimatePresence>
           </div>
 
-          {NAV_LINKS.map((link) => (
+          {NAV_LINKS_AFTER.map((link) => (
             <Link key={link.label} href={link.href} className={linkClass}>
               {link.label}
             </Link>
@@ -146,20 +158,31 @@ export default function Navbar() {
             exit={{ opacity: 0, y: -20 }}
             className="absolute top-full left-0 w-full bg-background border-t border-border shadow-lg py-4 px-6 md:hidden flex flex-col gap-1"
           >
-            {/* Solutions accordion */}
+            {NAV_LINKS_BEFORE.map((link) => (
+              <Link
+                key={link.label}
+                href={link.href}
+                onClick={() => setMobileMenuOpen(false)}
+                className="text-foreground/80 font-medium py-3 border-b border-border/50 hover:text-primary transition-colors"
+              >
+                {link.label}
+              </Link>
+            ))}
+
+            {/* Products accordion */}
             <button
               type="button"
-              onClick={() => setMobileSolutionsOpen(!mobileSolutionsOpen)}
+              onClick={() => setMobileProductsOpen(!mobileProductsOpen)}
               className="flex items-center justify-between text-foreground/80 font-medium py-3 border-b border-border/50 hover:text-primary transition-colors w-full text-left"
             >
-              Solutions
+              Products
               <ChevronDown
                 size={16}
-                className={`transition-transform ${mobileSolutionsOpen ? 'rotate-180' : ''}`}
+                className={`transition-transform ${mobileProductsOpen ? 'rotate-180' : ''}`}
               />
             </button>
             <AnimatePresence initial={false}>
-              {mobileSolutionsOpen && (
+              {mobileProductsOpen && (
                 <motion.div
                   initial={{ height: 0, opacity: 0 }}
                   animate={{ height: 'auto', opacity: 1 }}
@@ -167,21 +190,22 @@ export default function Navbar() {
                   transition={{ duration: 0.2 }}
                   className="overflow-hidden pl-4"
                 >
-                  {SOLUTIONS_DROPDOWN.map((item) => (
+                  {PRODUCTS_DROPDOWN.map((item) => (
                     <Link
                       key={item.label}
                       href={item.href}
                       onClick={() => setMobileMenuOpen(false)}
-                      className="block text-sm text-foreground/70 py-2 hover:text-primary transition-colors"
+                      className="block py-2 hover:text-primary transition-colors"
                     >
-                      {item.label}
+                      <p className="text-sm font-semibold text-foreground/80">{item.label}</p>
+                      <p className="text-xs text-muted-foreground mt-0.5 leading-snug">{item.desc}</p>
                     </Link>
                   ))}
                 </motion.div>
               )}
             </AnimatePresence>
 
-            {NAV_LINKS.map((link) => (
+            {NAV_LINKS_AFTER.map((link) => (
               <Link
                 key={link.label}
                 href={link.href}

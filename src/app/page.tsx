@@ -64,37 +64,36 @@ export default function Home() {
       <main className="min-h-screen bg-background text-foreground scroll-smooth">
         <Navbar />
 
-        {/* Section 1: Hero */}
+        {/* 1. Hero */}
         <HeroSection />
 
-        {/* Mandate minimum — visible immediately after the hero */}
         <MandateBar />
 
-        {/* Section 2: Onboarding Expectations */}
-        <OnboardingExpectations />
-
-        {/* Section 3: Wealth Is More Than Investment Returns */}
-        <WealthPillars />
-
-        {/* Section 3: Why Wealth Fails + ITAML Framework */}
-        <WhyWealthFails />
-
-        {/* Section 4: Solutions */}
+        {/* 2. Our Products */}
         <SolutionsSection />
 
-        {/* Section 5: Investment Philosophy */}
-        <InvestmentPhilosophy />
-
-        {/* Section 6: Why Investors Choose Invest-Trust */}
+        {/* 3. Why Investors Trust Us */}
         <WhyChooseUs />
 
-        {/* Section 7: Wealth Blueprint (Interactive) */}
+        {/* 4. What to Expect When You Work With Us */}
+        <OnboardingExpectations />
+
+        {/* 5. The Wealth Mandate */}
+        <WealthPillars />
+
+        {/* 6. Why Wealth Fails */}
+        <WhyWealthFails />
+
+        {/* 7. Our Investment Philosophy */}
+        <InvestmentPhilosophy />
+
+        {/* 8. Your Wealth Blueprint */}
         <WealthBlueprintSection />
 
-        {/* Contact & Footer */}
+        {/* 9. Contact */}
         <ContactSection />
 
-        {/* Market Insights */}
+        {/* 10. Market Insights */}
         <InsightsSection />
 
         <Footer />

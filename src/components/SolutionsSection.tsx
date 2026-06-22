@@ -56,13 +56,13 @@ export default function SolutionsSection() {
             className="w-full lg:w-2/5 lg:sticky lg:top-28"
           >
             <span className="text-primary font-semibold tracking-wider uppercase text-sm mb-3 block">
-              Our Solutions
+              Our Products
             </span>
             <h2 className="text-3xl md:text-5xl font-bold text-foreground mb-6 leading-tight">
               Purpose-Built for Every Stage of Your Wealth Journey
             </h2>
             <p className="text-lg text-muted-foreground leading-relaxed">
-              Whether you are accumulating, protecting or transferring wealth — we have a purpose-built solution for your stage.
+              Whether you are accumulating, protecting or transferring wealth — we have a purpose-built product for your stage.
             </p>
           </motion.div>
 

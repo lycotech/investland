@@ -2,7 +2,7 @@
 
 import { useEffect, useRef } from 'react';
 import dynamic from 'next/dynamic';
-import { ChevronRight, ShieldCheck, BarChart3, Landmark, ArrowRight } from 'lucide-react';
+import { ShieldCheck, BarChart3, Landmark, ArrowRight } from 'lucide-react';
 import { gsap } from '@/lib/gsap';
 
 const HeroBackground = dynamic(() => import('./HeroBackground'), { ssr: false });
@@ -120,25 +120,6 @@ export default function HeroSection() {
                 preserve wealth, generate sustainable income and build lasting legacies.
               </p>
 
-              <div className="hero-cta flex flex-col sm:flex-row items-center gap-4 justify-center lg:justify-start">
-                <a
-                  href="#contact"
-                  className="w-full sm:w-auto px-8 py-4 bg-white text-primary font-bold rounded-lg hover:bg-blue-50 transition-colors shadow-xl flex items-center justify-center gap-2 group"
-                >
-                  Start Your Wealth Journey
-                  <ChevronRight size={18} className="group-hover:translate-x-1 transition-transform" />
-                </a>
-                <a
-                  href="#contact"
-                  className="w-full sm:w-auto px-8 py-4 bg-white/10 border border-white/25 text-white font-semibold rounded-lg hover:bg-white/20 transition-colors flex items-center justify-center gap-2"
-                >
-                  Speak With An Advisor
-                </a>
-              </div>
-
-              <p className="hero-cta mt-5 text-sm text-white/50 text-center lg:text-left">
-                Minimum investment: <span className="text-white/80 font-semibold">₦10,000,000</span> &mdash; Individual, corporate &amp; institutional mandates.
-              </p>
             </div>
 
             {/* Right — floating trust cards (desktop only) */}

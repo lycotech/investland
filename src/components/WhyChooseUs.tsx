@@ -113,9 +113,6 @@ export default function WhyChooseUs() {
 
         {/* Header */}
         <div className="why-header max-w-2xl mb-16">
-          <span className="text-primary font-semibold tracking-wider uppercase text-sm mb-3 block">
-            Why Invest-Trust
-          </span>
           <h2 className="text-3xl md:text-5xl font-bold text-foreground leading-tight">
             Why Investors Trust Us
           </h2>
