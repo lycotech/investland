@@ -2,22 +2,10 @@
 
 import { useEffect, useRef } from 'react';
 import dynamic from 'next/dynamic';
-import { ChevronRight, ShieldCheck, BarChart3, Landmark, Users, ArrowRight } from 'lucide-react';
-import { gsap, ScrollTrigger } from '@/lib/gsap';
+import { ChevronRight, ShieldCheck, BarChart3, Landmark, ArrowRight } from 'lucide-react';
+import { gsap } from '@/lib/gsap';
 
 const HeroBackground = dynamic(() => import('./HeroBackground'), { ssr: false });
-
-const STATS = [
-  {
-    icon: ShieldCheck,
-    label: 'SEC Licensed',
-    sub: 'Verify Registration',
-    href: 'https://sec.gov.ng/for-investors/find-a-registered-operator/?query=Invest-trust',
-  },
-  { icon: BarChart3, label: 'Institutional Grade', sub: 'Research' },
-  { icon: Landmark, label: 'Private Market', sub: 'Access' },
-  { icon: Users, label: 'Retirement', sub: 'Solutions' },
-];
 
 export default function HeroSection() {
   const heroRef = useRef<HTMLElement>(null);
@@ -27,8 +15,7 @@ export default function HeroSection() {
       /* ── Entrance timeline ── */
       const tl = gsap.timeline({ defaults: { ease: 'power4.out' } });
 
-      tl.from('.hero-badge', { opacity: 0, y: 18, duration: 0.6 })
-        .from('.hero-word', {
+      tl.from('.hero-word', {
           opacity: 0,
           y: 52,
           stagger: 0.07,
@@ -76,18 +63,6 @@ export default function HeroSection() {
         delay: 1.1,
       });
 
-      /* ── Stats strip fade in on scroll ── */
-      gsap.from('.hero-stat', {
-        opacity: 0,
-        y: 12,
-        stagger: 0.08,
-        duration: 0.5,
-        ease: 'power2.out',
-        scrollTrigger: {
-          trigger: '.hero-stats-strip',
-          start: 'top 95%',
-        },
-      });
     }, heroRef);
 
     return () => ctx.revert();
@@ -129,15 +104,6 @@ export default function HeroSection() {
             {/* Left — headline + copy + CTAs */}
             <div className="w-full lg:w-3/5 text-center lg:text-left">
 
-              <a
-                href="https://sec.gov.ng/for-investors/find-a-registered-operator/?query=Invest-trust"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="hero-badge inline-flex items-center gap-2 bg-white/12 border border-white/20 text-white/90 text-xs font-semibold tracking-widest uppercase px-4 py-2 rounded-full mb-8 hover:bg-white/20 transition-colors"
-              >
-                SEC Licensed Asset Manager · Nigeria
-              </a>
-
               <h1 className="text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold text-white leading-[1.05] tracking-tight mb-6 overflow-hidden">
                 <span className="block">
                   <span className="hero-word inline-block mr-[0.28em]">Building</span>
@@ -169,6 +135,10 @@ export default function HeroSection() {
                   Speak With An Advisor
                 </a>
               </div>
+
+              <p className="hero-cta mt-5 text-sm text-white/50 text-center lg:text-left">
+                Minimum investment: <span className="text-white/80 font-semibold">₦10,000,000</span> &mdash; Individual, corporate &amp; institutional mandates.
+              </p>
             </div>
 
             {/* Right — floating trust cards (desktop only) */}
@@ -221,43 +191,6 @@ export default function HeroSection() {
               </div>
             </div>
 
-          </div>
-        </div>
-      </div>
-
-      {/* ── Stats strip ── */}
-      <div className="hero-stats-strip relative z-10 border-t border-white/10 bg-black/15 backdrop-blur-sm">
-        <div className="container mx-auto px-6 md:px-12">
-          <div className="grid grid-cols-2 md:grid-cols-4">
-            {STATS.map((stat) => {
-              const Icon = stat.icon;
-              const inner = (
-                <>
-                  <Icon size={18} className="text-blue-200 flex-shrink-0" />
-                  <div>
-                    <p className="text-white font-semibold text-sm leading-none">{stat.label}</p>
-                    <p className="text-white/50 text-xs mt-0.5">{stat.sub}</p>
-                  </div>
-                </>
-              );
-              return (
-                <div
-                  key={stat.label}
-                  className="hero-stat flex items-center gap-3 py-5 px-4 first:pl-0 border-r border-white/8 last:border-0"
-                >
-                  {stat.href ? (
-                    <a
-                      href={stat.href}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex items-center gap-3 hover:opacity-80 transition-opacity"
-                    >
-                      {inner}
-                    </a>
-                  ) : inner}
-                </div>
-              );
-            })}
           </div>
         </div>
       </div>

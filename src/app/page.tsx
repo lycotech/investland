@@ -70,7 +70,10 @@ export default function Home() {
         {/* Mandate minimum — visible immediately after the hero */}
         <MandateBar />
 
-        {/* Section 2: Wealth Is More Than Investment Returns */}
+        {/* Section 2: Onboarding Expectations */}
+        <OnboardingExpectations />
+
+        {/* Section 3: Wealth Is More Than Investment Returns */}
         <WealthPillars />
 
         {/* Section 3: Why Wealth Fails + ITAML Framework */}
@@ -88,14 +91,12 @@ export default function Home() {
         {/* Section 7: Wealth Blueprint (Interactive) */}
         <WealthBlueprintSection />
 
-        {/* Section 8: Market Insights */}
-        <InsightsSection />
-
-        {/* Section 9: Onboarding Expectations */}
-        <OnboardingExpectations />
-
         {/* Contact & Footer */}
         <ContactSection />
+
+        {/* Market Insights */}
+        <InsightsSection />
+
         <Footer />
       </main>
     </>

@@ -117,7 +117,7 @@ export default function WhyChooseUs() {
             Why Invest-Trust
           </span>
           <h2 className="text-3xl md:text-5xl font-bold text-foreground leading-tight">
-            Why Investors Choose Invest-Trust
+            Why Investors Trust Us
           </h2>
         </div>
 

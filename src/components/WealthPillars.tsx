@@ -47,15 +47,16 @@ export default function WealthPillars() {
 
       /* ── All 4 cards trigger together from the section, not per-card ── */
       gsap.from('.pillar-card', {
-        opacity: 0,
+        autoAlpha: 0,
         y: 55,
         scale: 0.9,
         stagger: { each: 0.12, from: 'start' },
         duration: 0.75,
         ease: 'back.out(1.6)',
+        clearProps: 'all',
         scrollTrigger: {
           trigger: sectionRef.current,
-          start: 'top 65%',
+          start: 'top 80%',
           once: true,
         },
       });

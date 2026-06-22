@@ -47,11 +47,21 @@ export default function ContactSection() {
 
               <div className="flex items-start gap-4">
                 <div className="w-10 h-10 rounded-full bg-white/12 flex items-center justify-center flex-shrink-0">
+                  <MapPin size={20} className="text-blue-200" />
+                </div>
+                <div>
+                  <h4 className="font-semibold text-white/90">Abuja Office</h4>
+                  <p className="text-white/65 mt-1">5th Floor, Katsina House,<br />Ralph Shodeinde, Central Area<br />FCT Abuja</p>
+                </div>
+              </div>
+
+              <div className="flex items-start gap-4">
+                <div className="w-10 h-10 rounded-full bg-white/12 flex items-center justify-center flex-shrink-0">
                   <Phone size={20} className="text-blue-200" />
                 </div>
                 <div>
                   <h4 className="font-semibold text-white/90">Phone</h4>
-                  <p className="text-white/65 mt-1">+234 (1) 234 5678</p>
+                  <p className="text-white/65 mt-1">+234 802 222 6387</p>
                 </div>
               </div>
 
