@@ -108,12 +108,12 @@ export default function WhyChooseUs() {
   }, []);
 
   return (
-    <section ref={sectionRef} className="py-24 bg-background">
+    <section ref={sectionRef} className="py-24 bg-primary text-white">
       <div className="container mx-auto px-6 md:px-12">
 
         {/* Header */}
         <div className="why-header max-w-2xl mb-16">
-          <h2 className="text-3xl md:text-5xl font-bold text-foreground leading-tight">
+          <h2 className="text-3xl md:text-5xl font-bold text-white leading-tight">
             Why Investors Trust Us
           </h2>
         </div>
@@ -126,28 +126,28 @@ export default function WhyChooseUs() {
             return (
               <div
                 key={item.number}
-                className={`${isRight ? 'why-item-right' : 'why-item-left'} flex gap-6 py-8 border-b border-border/50 last:border-0`}
+                className={`${isRight ? 'why-item-right' : 'why-item-left'} flex gap-6 py-8 border-b border-white/10 last:border-0`}
               >
                 {/* Icon */}
                 <div className="flex-shrink-0">
-                  <div className="why-icon w-12 h-12 rounded-xl bg-primary/8 flex items-center justify-center">
-                    <Icon size={22} className="text-primary" />
+                  <div className="why-icon w-12 h-12 rounded-xl bg-white/12 flex items-center justify-center">
+                    <Icon size={22} className="text-white" />
                   </div>
                 </div>
 
                 {/* Content */}
                 <div>
                   <div className="flex items-center gap-2 mb-2">
-                    <span className="why-number text-xs font-bold text-primary/40 tracking-widest">{item.number}</span>
-                    <h3 className="text-lg font-bold text-foreground">{item.title}</h3>
+                    <span className="why-number text-xs font-bold text-white/40 tracking-widest">{item.number}</span>
+                    <h3 className="text-lg font-bold text-white">{item.title}</h3>
                   </div>
-                  <p className="text-muted-foreground text-sm leading-relaxed">{item.description}</p>
+                  <p className="text-white/70 text-sm leading-relaxed">{item.description}</p>
                   {'verifyHref' in item && item.verifyHref && (
                     <a
                       href={item.verifyHref as string}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="mt-2 inline-flex items-center gap-1 text-xs text-primary font-semibold hover:underline"
+                      className="mt-2 inline-flex items-center gap-1 text-xs text-white/80 font-semibold hover:underline"
                     >
                       Verify on SEC.gov.ng
                       <ExternalLink size={11} />
