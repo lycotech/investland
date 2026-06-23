@@ -72,7 +72,7 @@ export default function OnboardingExpectations() {
   }, []);
 
   return (
-    <section className="py-24 bg-muted/40">
+    <section className="py-24 bg-muted/80">
       <div ref={sectionRef} className="container mx-auto px-6 md:px-12">
 
         {/* Header */}

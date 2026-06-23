@@ -70,7 +70,7 @@ export default function ContactSection() {
             <div>
               <h3 className="text-2xl font-bold mb-6 text-white">Contact Us</h3>
               <p className="text-white/75 mb-8 leading-relaxed">
-                Our advisors are ready to have a confidential conversation about your investment objectives. Typical mandates start from <strong className="text-white">₦10,000,000</strong> and above.
+                Our advisors are ready to have a confidential conversation about your investment objectives.
               </p>
             </div>
 
@@ -221,9 +221,6 @@ export default function ContactSection() {
                   )}
                 </button>
 
-                <p className="text-xs text-center text-muted-foreground">
-                  All enquiries are treated with the strictest confidence. Minimum mandate: ₦10,000,000.
-                </p>
               </form>
             )}
           </div>
