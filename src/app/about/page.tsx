@@ -66,33 +66,56 @@ export default function AboutPage() {
 
       {/* About Narrative */}
       <section className="py-20 bg-white">
-        <div className="container mx-auto px-6 md:px-12 max-w-4xl">
-          <div className="w-10 h-0.5 bg-gold mb-10" />
-          <div className="space-y-6 text-lg text-muted-foreground leading-relaxed">
-            <p>
-              Invest-Trust Asset Management Ltd is a regulated wealth and investment management firm built to help individuals, families, businesses, and institutions preserve capital, generate sustainable income, and build wealth with structure.
-            </p>
-            <p>
-              We believe wealth is not sustained by opportunity alone. It requires discipline, governance, liquidity planning, risk management, and a clear investment mandate. That is why our approach is mandate-first, not product-first. We begin by understanding each client&apos;s objectives, risk appetite, liquidity needs, time horizon, and long-term aspirations before designing a portfolio strategy that fits their goals.
-            </p>
-            <p>
-              Our work spans portfolio management, wealth advisory, fixed income strategies, corporate treasury management, private credit opportunities, real asset exposure, retirement income planning, diaspora wealth solutions, and family office support.
-            </p>
-            <p>
-              At Invest-Trust, every client relationship is built around clarity. We help clients understand what they own, why they own it, the risks involved, the expected investment horizon, and how each allocation contributes to their broader wealth objectives.
-            </p>
-            <p>
-              We serve clients who are intentional about building, protecting, growing, and transferring wealth. Whether the goal is income, capital preservation, liquidity, long-term growth, or legacy planning, our role is to bring structure and professional discipline to the investment process.
-            </p>
-            <p>
-              As a firm licensed and regulated by the Securities and Exchange Commission of Nigeria, we operate within a framework of governance, compliance, reporting, and fiduciary responsibility. This reinforces our commitment to transparency, accountability, and responsible capital management.
-            </p>
-            <p className="text-foreground font-semibold text-xl border-l-4 border-gold pl-6 py-2">
-              For us, wealth is more than investment returns. It is the foundation for security, opportunity, independence, and generational continuity.
-            </p>
-            <p>
-              Invest-Trust exists to help clients make better capital decisions today, so they can build stronger financial futures tomorrow.
-            </p>
+        <div className="container mx-auto px-6 md:px-12">
+          <div className="flex flex-col lg:flex-row gap-16 items-start">
+
+            {/* MD Portrait */}
+            <div className="w-full lg:w-2/5 flex-shrink-0">
+              <div className="relative rounded-3xl overflow-hidden aspect-[4/5]">
+                <img
+                  src="/md.jpeg"
+                  alt="Managing Director — Invest-Trust Asset Management Limited"
+                  className="w-full h-full object-cover object-top"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-primary/85 via-primary/10 to-transparent" />
+                <div className="absolute bottom-0 left-0 right-0 p-8">
+                  <p className="text-white font-bold text-lg">Managing Director</p>
+                  <p className="text-gold text-sm font-medium">Invest-Trust Asset Management Limited</p>
+                </div>
+              </div>
+            </div>
+
+            {/* Narrative */}
+            <div className="w-full lg:w-3/5">
+              <div className="w-10 h-0.5 bg-gold mb-10" />
+              <div className="space-y-6 text-lg text-muted-foreground leading-relaxed">
+                <p>
+                  Invest-Trust Asset Management Ltd is a regulated wealth and investment management firm built to help individuals, families, businesses, and institutions preserve capital, generate sustainable income, and build wealth with structure.
+                </p>
+                <p>
+                  We believe wealth is not sustained by opportunity alone. It requires discipline, governance, liquidity planning, risk management, and a clear investment mandate. That is why our approach is mandate-first, not product-first. We begin by understanding each client&apos;s objectives, risk appetite, liquidity needs, time horizon, and long-term aspirations before designing a portfolio strategy that fits their goals.
+                </p>
+                <p>
+                  Our work spans portfolio management, wealth advisory, fixed income strategies, corporate treasury management, private credit opportunities, real asset exposure, retirement income planning, diaspora wealth solutions, and family office support.
+                </p>
+                <p>
+                  At Invest-Trust, every client relationship is built around clarity. We help clients understand what they own, why they own it, the risks involved, the expected investment horizon, and how each allocation contributes to their broader wealth objectives.
+                </p>
+                <p>
+                  We serve clients who are intentional about building, protecting, growing, and transferring wealth. Whether the goal is income, capital preservation, liquidity, long-term growth, or legacy planning, our role is to bring structure and professional discipline to the investment process.
+                </p>
+                <p>
+                  As a firm licensed and regulated by the Securities and Exchange Commission of Nigeria, we operate within a framework of governance, compliance, reporting, and fiduciary responsibility. This reinforces our commitment to transparency, accountability, and responsible capital management.
+                </p>
+                <p className="text-foreground font-semibold text-xl border-l-4 border-gold pl-6 py-2">
+                  For us, wealth is more than investment returns. It is the foundation for security, opportunity, independence, and generational continuity.
+                </p>
+                <p>
+                  Invest-Trust exists to help clients make better capital decisions today, so they can build stronger financial futures tomorrow.
+                </p>
+              </div>
+            </div>
+
           </div>
         </div>
       </section>

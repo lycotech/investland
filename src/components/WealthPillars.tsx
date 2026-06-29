@@ -44,18 +44,6 @@ export default function WealthPillars() {
         },
       });
 
-      gsap.from('.pillars-images', {
-        opacity: 0,
-        x: -40,
-        duration: 0.9,
-        ease: 'power3.out',
-        scrollTrigger: {
-          trigger: sectionRef.current,
-          start: 'top 75%',
-          once: true,
-        },
-      });
-
       gsap.from('.pillar-card', {
         autoAlpha: 0,
         y: 55,
@@ -76,56 +64,56 @@ export default function WealthPillars() {
   }, []);
 
   return (
-    <section ref={sectionRef} className="py-24 bg-background overflow-hidden">
-      <div className="container mx-auto px-6 md:px-12">
-        <div className="flex flex-col lg:flex-row gap-16 items-center">
+    <section ref={sectionRef} className="relative py-24 overflow-hidden">
 
-          {/* Image — left column */}
-          <div className="pillars-images w-full lg:w-2/5 flex-shrink-0">
-            <div className="relative rounded-2xl overflow-hidden shadow-xl aspect-[4/5]">
-              <img
-                src="/coin.jpeg"
-                alt="Investment growth"
-                className="w-full h-full object-cover"
-              />
-            </div>
-          </div>
+      {/* Background image */}
+      <div className="absolute inset-0">
+        <img
+          src="/coin.jpeg"
+          alt=""
+          aria-hidden="true"
+          className="w-full h-full object-cover object-center"
+        />
+      </div>
 
-          {/* Content — right column */}
-          <div className="w-full lg:w-3/5">
-            <div className="pillars-header mb-10">
-              <span className="text-primary font-semibold tracking-wider uppercase text-sm mb-3 block">
-                The Wealth Mandate
-              </span>
-              <h2 className="text-3xl md:text-5xl font-bold text-foreground leading-tight">
-                Wealth Is More Than Investment Returns
-              </h2>
-            </div>
+      {/* Primary color overlay — matches hero */}
+      <div className="absolute inset-0 bg-gradient-to-br from-primary/80 via-primary/70 to-primary/55" />
+      <div className="absolute inset-0 bg-gradient-to-t from-primary/50 to-transparent" />
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
-              {PILLARS.map((pillar) => {
-                const Icon = pillar.icon;
-                return (
-                  <div
-                    key={pillar.title}
-                    className="pillar-card group p-6 rounded-2xl border border-border/60 bg-background hover:bg-muted/40 hover:border-primary/30 hover:-translate-y-1 transition-all duration-300"
-                  >
-                    <div className="w-12 h-12 rounded-xl bg-primary/5 flex items-center justify-center mb-4 group-hover:bg-primary transition-colors duration-300">
-                      <Icon size={22} className="text-primary group-hover:text-white transition-colors" />
-                    </div>
-                    <h3 className="text-lg font-bold text-foreground mb-2 group-hover:text-primary transition-colors">
-                      {pillar.title}
-                    </h3>
-                    <p className="text-muted-foreground leading-relaxed text-sm">
-                      {pillar.description}
-                    </p>
-                  </div>
-                );
-              })}
-            </div>
-          </div>
+      {/* Content */}
+      <div className="relative z-10 container mx-auto px-6 md:px-12">
 
+        <div className="pillars-header mb-12 max-w-2xl">
+          <span className="text-gold font-semibold tracking-wider uppercase text-sm mb-3 block">
+            The Wealth Mandate
+          </span>
+          <h2 className="text-3xl md:text-5xl font-bold text-white leading-tight">
+            Wealth Is More Than Investment Returns
+          </h2>
         </div>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+          {PILLARS.map((pillar) => {
+            const Icon = pillar.icon;
+            return (
+              <div
+                key={pillar.title}
+                className="pillar-card group p-6 rounded-2xl border border-white/15 bg-white/8 hover:bg-white/15 hover:border-gold/40 hover:-translate-y-1 transition-all duration-300 backdrop-blur-sm"
+              >
+                <div className="w-12 h-12 rounded-xl bg-white/10 flex items-center justify-center mb-4 group-hover:bg-gold transition-colors duration-300">
+                  <Icon size={22} className="text-white transition-colors" />
+                </div>
+                <h3 className="text-lg font-bold text-white mb-2">
+                  {pillar.title}
+                </h3>
+                <p className="text-white/70 leading-relaxed text-sm">
+                  {pillar.description}
+                </p>
+              </div>
+            );
+          })}
+        </div>
+
       </div>
     </section>
   );
