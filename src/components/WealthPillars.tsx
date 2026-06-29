@@ -32,7 +32,6 @@ export default function WealthPillars() {
 
   useEffect(() => {
     const ctx = gsap.context(() => {
-      /* ── Header reveal ── */
       gsap.from('.pillars-header', {
         opacity: 0,
         y: 30,
@@ -45,7 +44,18 @@ export default function WealthPillars() {
         },
       });
 
-      /* ── All 4 cards trigger together from the section, not per-card ── */
+      gsap.from('.pillars-images', {
+        opacity: 0,
+        x: -40,
+        duration: 0.9,
+        ease: 'power3.out',
+        scrollTrigger: {
+          trigger: sectionRef.current,
+          start: 'top 75%',
+          once: true,
+        },
+      });
+
       gsap.from('.pillar-card', {
         autoAlpha: 0,
         y: 55,
@@ -66,37 +76,55 @@ export default function WealthPillars() {
   }, []);
 
   return (
-    <section ref={sectionRef} className="py-24 bg-background">
+    <section ref={sectionRef} className="py-24 bg-background overflow-hidden">
       <div className="container mx-auto px-6 md:px-12">
-        <div className="pillars-header text-center max-w-3xl mx-auto mb-16">
-          <span className="text-primary font-semibold tracking-wider uppercase text-sm mb-3 block">
-            The Wealth Mandate
-          </span>
-          <h2 className="text-3xl md:text-5xl font-bold text-foreground leading-tight">
-            Wealth Is More Than Investment Returns
-          </h2>
-        </div>
+        <div className="flex flex-col lg:flex-row gap-16 items-center">
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          {PILLARS.map((pillar) => {
-            const Icon = pillar.icon;
-            return (
-              <div
-                key={pillar.title}
-                className="pillar-card group p-8 rounded-2xl border border-border/60 bg-background hover:bg-muted/40 hover:border-primary/30 hover:-translate-y-1 transition-all duration-300 text-center"
-              >
-                <div className="pillar-icon w-16 h-16 rounded-2xl bg-primary/5 flex items-center justify-center mx-auto mb-6 group-hover:bg-primary transition-colors duration-300">
-                  <Icon size={28} className="text-primary group-hover:text-white transition-colors" />
-                </div>
-                <h3 className="text-xl font-bold text-foreground mb-3 group-hover:text-primary transition-colors">
-                  {pillar.title}
-                </h3>
-                <p className="text-muted-foreground leading-relaxed text-sm">
-                  {pillar.description}
-                </p>
-              </div>
-            );
-          })}
+          {/* Image — left column */}
+          <div className="pillars-images w-full lg:w-2/5 flex-shrink-0">
+            <div className="relative rounded-2xl overflow-hidden shadow-xl aspect-[4/5]">
+              <img
+                src="/coin.jpeg"
+                alt="Investment growth"
+                className="w-full h-full object-cover"
+              />
+            </div>
+          </div>
+
+          {/* Content — right column */}
+          <div className="w-full lg:w-3/5">
+            <div className="pillars-header mb-10">
+              <span className="text-primary font-semibold tracking-wider uppercase text-sm mb-3 block">
+                The Wealth Mandate
+              </span>
+              <h2 className="text-3xl md:text-5xl font-bold text-foreground leading-tight">
+                Wealth Is More Than Investment Returns
+              </h2>
+            </div>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+              {PILLARS.map((pillar) => {
+                const Icon = pillar.icon;
+                return (
+                  <div
+                    key={pillar.title}
+                    className="pillar-card group p-6 rounded-2xl border border-border/60 bg-background hover:bg-muted/40 hover:border-primary/30 hover:-translate-y-1 transition-all duration-300"
+                  >
+                    <div className="w-12 h-12 rounded-xl bg-primary/5 flex items-center justify-center mb-4 group-hover:bg-primary transition-colors duration-300">
+                      <Icon size={22} className="text-primary group-hover:text-white transition-colors" />
+                    </div>
+                    <h3 className="text-lg font-bold text-foreground mb-2 group-hover:text-primary transition-colors">
+                      {pillar.title}
+                    </h3>
+                    <p className="text-muted-foreground leading-relaxed text-sm">
+                      {pillar.description}
+                    </p>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+
         </div>
       </div>
     </section>

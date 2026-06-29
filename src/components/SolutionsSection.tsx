@@ -56,7 +56,7 @@ export default function SolutionsSection() {
             className="w-full lg:w-2/5 lg:sticky lg:top-28"
           >
             <span className="text-primary font-semibold tracking-wider uppercase text-sm mb-3 block">
-              Our Products
+              Our Solutions
             </span>
             <h2 className="text-3xl md:text-5xl font-bold text-foreground mb-6 leading-tight">
               Purpose-Built for Every Stage of Your Wealth Journey

@@ -19,7 +19,7 @@ const PRODUCTS_DROPDOWN = [
 
 const NAV_LINKS_BEFORE = [
   { label: 'Home', href: '/' },
-  { label: 'About', href: '/about' },
+  { label: 'About Us', href: '/about' },
 ];
 
 const NAV_LINKS_AFTER = [
@@ -85,7 +85,7 @@ export default function Navbar() {
               type="button"
               className={`${linkClass} flex items-center gap-1`}
             >
-              Products
+              Our Solutions
               <ChevronDown
                 size={14}
                 className={`transition-transform duration-200 ${productsOpen ? 'rotate-180' : ''}`}
@@ -175,7 +175,7 @@ export default function Navbar() {
               onClick={() => setMobileProductsOpen(!mobileProductsOpen)}
               className="flex items-center justify-between text-foreground/80 font-medium py-3 border-b border-border/50 hover:text-primary transition-colors w-full text-left"
             >
-              Products
+              Our Solutions
               <ChevronDown
                 size={16}
                 className={`transition-transform ${mobileProductsOpen ? 'rotate-180' : ''}`}
