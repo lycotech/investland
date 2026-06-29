@@ -4,7 +4,6 @@ import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X, ChevronDown } from 'lucide-react';
 import Link from 'next/link';
-import ThemeToggle from './ThemeToggle';
 
 const PRODUCTS_DROPDOWN = [
   { label: 'Portfolio Management', desc: 'Discretionary and managed portfolios aligned to income, growth, liquidity and risk objectives.', href: '/portfolio-management' },
@@ -122,8 +121,6 @@ export default function Navbar() {
             </Link>
           ))}
 
-          <ThemeToggle className={isScrolled ? 'text-foreground/80' : 'text-white/85'} />
-
           <Link
             href="/#contact"
             className={`px-5 py-2.5 text-sm font-semibold rounded-md transition-colors shadow-sm ${
@@ -138,7 +135,6 @@ export default function Navbar() {
 
         {/* Mobile controls */}
         <div className="flex items-center gap-2 md:hidden">
-          <ThemeToggle className={isScrolled ? 'text-foreground' : 'text-white'} />
           <button
             type="button"
             className={`transition-colors ${isScrolled ? 'text-foreground' : 'text-white'}`}

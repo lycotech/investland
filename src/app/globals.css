@@ -29,17 +29,7 @@
   --border: #C8D8F0;
 }
 
-/* ─── Dark theme ────────────────────────────────────────────────────────── */
-.dark {
-  --background: #06101E;
-  --foreground: #E0E8F4;
-  --muted: #0D1830;
-  --muted-foreground: #7A96C0;
-  --border: #1E3060;
-}
-
 :root { color-scheme: light; }
-.dark  { color-scheme: dark; }
 
 body {
   transition: background-color 0.3s ease, color 0.3s ease;
