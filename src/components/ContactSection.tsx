@@ -119,7 +119,7 @@ export default function ContactSection() {
           </div>
 
           {/* Contact Form */}
-          <div className="w-full lg:w-2/3 flex flex-col justify-center">
+          <div className="w-full lg:w-2/3 flex flex-col">
             {status === 'success' ? (
               <div className="h-full flex flex-col items-center justify-center text-center bg-background rounded-2xl p-12 shadow-lg gap-4">
                 <CheckCircle size={48} className="text-primary" />
@@ -136,7 +136,7 @@ export default function ContactSection() {
                 </button>
               </div>
             ) : (
-              <form onSubmit={handleSubmit} className="space-y-6 bg-background rounded-2xl p-8 text-foreground shadow-lg">
+              <form onSubmit={handleSubmit} className="bg-background rounded-2xl p-8 text-foreground shadow-lg h-full flex flex-col justify-between gap-6">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div className="space-y-2">
                     <label htmlFor="name" className="text-sm font-medium text-foreground/80">Full Name</label>
