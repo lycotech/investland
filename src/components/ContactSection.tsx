@@ -119,7 +119,7 @@ export default function ContactSection() {
           </div>
 
           {/* Contact Form */}
-          <div className="w-full lg:w-2/3">
+          <div className="w-full lg:w-2/3 flex flex-col justify-center">
             {status === 'success' ? (
               <div className="h-full flex flex-col items-center justify-center text-center bg-background rounded-2xl p-12 shadow-lg gap-4">
                 <CheckCircle size={48} className="text-primary" />
